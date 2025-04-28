@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valhalla Visions</title>
+    <link rel="shortcut icon" href="src/logosite.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+    <!-- Runas de fundo -->
+    <div class="runes-background" id="runesBackground"></div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="header-content">
+            <h1>MITOLOGIA NÓRDICA</h1>
+            <p class="subtitle">Uma jornada pelos Nove Mundos de Yggdrasil</p>
+        </div>
+    </header>
+
+    <!-- Navegação -->
+    <nav id="mainNav">
+        <div class="nav-container">
+            <div class="nav-top">
+                <div class="logo">
+                    Valhalla Visions
+                    <img style="width: auto; height: 50px;" src="src/logosite.png" alt="Logo Valhalla Visions">
+                    <style>
+                        .navbar {
+                          display: flex;
+                          justify-content: space-between;
+                          align-items: center;
+                          padding: 10px 20px;
+                          background-color: #1a1a1a;
+                          color: #fff;
+                        }
+                    
+                        .logo {
+                          display: flex;
+                          align-items: center;
+                          gap: 10px;
+                          font-size: 24px;
+                          font-family: 'Arial', sans-serif;
+                          font-weight: bold;
+                        }
+                    
+                        .logo img {
+                          width: auto;
+                          height: 70px;
+                        }
+                    
+                        .nav-menu ul {
+                          list-style: none;
+                          margin: 0;
+                          padding: 0;
+                          display: flex;
+                          gap: 20px;
+                        }
+                    
+                        .nav-menu ul li a {
+                          color: #fff;
+                          text-decoration: none;
+                          font-size: 18px;
+                        }
+                    
+                        .nav-menu ul li a:hover {
+                          color: #d4a017;
+                        }
+                      </style>
+                  </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#introducao">Introdução</a></li>
+                <li><a href="#historia">História</a></li>
+                <li><a href="#deuses">Deuses</a></li>
+                <li><a href="#criaturas">Criaturas</a></li>
+                <li><a href="#mundos">Nove Mundos</a></li>
+                <li><a href="#curiosidades">Curiosidades</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <!-- Introdução -->
+        <section id="introducao" class="section fade-in">
+            <h2>Introdução à Mitologia Nórdica</h2>
+            <p>A mitologia nórdica representa o conjunto de lendas, crenças e práticas religiosas dos povos nórdicos antigos, principalmente os escandinavos (suecos, dinamarqueses, noruegueses e islandeses) durante a Era Viking (790–1100 d.C.). Sua rica cosmologia, preenchida com deuses poderosos, gigantes ameaçadores e criaturas fantásticas, continua fascinando o mundo moderno.</p>
+            <p>Nestas terras geladas do norte, os habitantes desenvolveram histórias que explicavam a criação do mundo, os fenômenos naturais, e o destino final de tudo no apocalíptico Ragnarök. Diferente de outras mitologias, os deuses nórdicos não eram imortais ou perfeitos - eles possuíam falhas, medos e sabiam que um dia enfrentariam seu fim.</p>
+            <p>A mitologia nórdica chegou até nós principalmente através de dois textos fundamentais: a <em>Edda em Prosa</em> e a <em>Edda Poética</em>, escritas no século XIII, séculos após a cristianização da Escandinávia. Estas fontes, junto com sagas islandesas, poemas escáldicos e evidências arqueológicas, oferecem uma visão das crenças que guiavam a vida dos antigos nórdicos.</p>
+            <p>Neste site, embarcaremos em uma jornada pelos nove mundos sustentados pela árvore cósmica Yggdrasil, conheceremos os deuses do Asgard, os gigantes de Jotunheim, e exploraremos os mitos que moldaram uma das culturas mais fascinantes da história humana.</p>
+        </section>
+
+        <!-- História e Cosmologia -->
+        <section id="historia" class="section fade-in delay-1">
+            <h2>História e Cosmologia da Mitologia Nórdica</h2>
+            <p>A mitologia nórdica, enraizada nas tradições orais dos povos germânicos da Escandinávia, é uma janela para a cosmovisão dos vikings durante a Era Viking (793–1066 d.C.). Preservada em textos como a *Edda Poética* (compilada no século XIII a partir de tradições orais mais antigas) e a *Edda em Prosa* de Snorri Sturluson, ela reflete uma visão cíclica do tempo, distinta das narrativas lineares cristãs predominantes na Europa medieval. Central a essa cosmologia está Yggdrasil, o freixo cósmico que conecta os nove mundos – de Asgard, lar dos deuses Æsir, a Hel, reino dos mortos. Yggdrasil simboliza a interdependência cósmica, com a serpente Níðhöggr roendo suas raízes e uma águia no topo, acompanhada pelo esquilo Ratatoskr, que carrega mensagens entre os dois. Essa estrutura encapsula a tensão entre ordem e caos, um tema recorrente na mitologia nórdica que ecoa os valores vikings de resiliência, coragem e aceitação do destino. Nesta seção, exploraremos a cronologia mitológica, desde a criação primordial até o Ragnarök, analisando como esses mitos expressavam a espiritualidade, a organização social e as práticas religiosas da Escandinávia pré-cristã, enquanto também consideramos as influências culturais que moldaram sua transmissão.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Antes do Tempo</span>
+                        <h3>A Criação do Cosmos</h3>
+                        <p>Antes de tudo, havia o Ginnungagap, um vazio primordial entre Niflheim, o reino de gelo e névoa ao norte, e Muspelheim, o domínio de fogo ao sul, guardado pelo gigante Surtr, cuja espada flamejante desempenhará um papel crucial no Ragnarök. A interação entre o frio de Niflheim e o calor de Muspelheim no Ginnungagap gerou os primeiros seres: Ymir, o gigante primordial, e Audumbla, a vaca cósmica. Ymir, alimentado pelo leite de Audumbla, gerou uma linhagem de gigantes a partir de seu suor, enquanto Audumbla, lambendo blocos de gelo salgado, revelou Buri, o primeiro ancestral divino. Esse mito, narrado na *Edda em Prosa* (*Gylfaginning*), ilustra uma cosmogonia orgânica, onde opostos complementares (frio e calor) criam vida. Para os vikings, essa narrativa refletia a natureza como uma força dinâmica, um princípio que também se manifestava em suas práticas agrícolas e marítimas, dependentes da harmonia com os elementos.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span style="margin-left: 50px;" class="timeline-date">Primórdios</span>
+                        <h3>A Formação do Mundo</h3>
+                        <p>De Buri nasceu Bor, que se uniu à giganta Bestla, filha de Ymir, gerando Odin, Vili e Vé, os primeiros deuses Æsir. Esses irmãos desafiaram a ordem caótica ao matar Ymir, um ato de sacrifício criativo que moldou o cosmos. O corpo de Ymir foi transformado: seu sangue formou mares e rios, sua carne virou terra, seus ossos se tornaram montanhas, seus dentes e fragmentos ósseos geraram rochas e penhascos, e seu crânio, sustentado pelos anões Nordri, Sudri, Austri e Vestri, tornou-se o céu. As centelhas de Muspelheim criaram estrelas, e o cérebro de Ymir formou as nuvens. Esse mito, descrito no poema *Völuspá* da *Edda Poética*, simboliza a ordem emergindo do caos, um conceito central na mitologia nórdica. O assassinato de Ymir também reflete a visão viking do sacrifício como fundação da sociedade, evidente em rituais como o *blót*, onde oferendas eram feitas para assegurar prosperidade.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span style="margin-right: 50px;" class="timeline-date">Era Arcaica</span>
+                        <h3>A Criação de Midgard e dos Humanos</h3>
+                        <p>Com o cosmos estruturado, Odin, Vili e Vé voltaram-se para a criação da humanidade. Encontrando dois troncos à deriva – um de freixo (representando força) e outro de olmo (simbolizando flexibilidade) –, os deuses os transformaram em Ask (“freixo”) e Embla (“olmo”), os primeiros humanos. Odin lhes deu o sopro da vida (*önd*) e a alma, Vili concedeu inteligência (*óðr*) e emoções, e Vé proporcionou sentidos, fala e aparência. Midgard, o “mundo do meio”, foi criado como lar da humanidade, protegido dos gigantes por uma cerca feita das sobrancelhas de Ymir e conectado a Asgard pela ponte Bifröst, o arco-íris guardado por Heimdall. Esse mito sublinha a relação ambígua entre deuses e humanos: os deuses são criadores, mas não controlam diretamente o destino humano, refletindo a ênfase viking na autodeterminação e na coragem frente à adversidade. Midgard, situado entre os reinos divinos e caóticos, simboliza a vulnerabilidade e a resiliência humanas.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Era Primordial</span>
+                        <h3>A Organização dos Nove Mundos</h3>
+                        <p>Com Midgard estabelecido, os deuses organizaram os nove mundos interligados por Yggdrasil, cada um com funções específicas na cosmologia nórdica. Asgard, lar dos Æsir, era o centro divino; Vanaheim abrigava os Vanir, deuses da fertilidade; Alfheim era o reino dos elfos luminosos; Svartalfheim, dos anões, mestres artesãos; Jötunheim, dos gigantes, representava o caos; Niflheim, um mundo de frio e névoa; Muspelheim, de fogo; Midgard, dos humanos; e Hel, governado por Hela, recebia os mortos que não alcançavam Valhalla. Yggdrasil, sustentada por três raízes ligadas às fontes Urdarbrunnr (destino), Hvergelmir (origem) e Mímisbrunnr (sabedoria), era o eixo cósmico. Esse sistema, descrito na *Edda em Prosa*, reflete a visão viking de um universo interconectado, onde cada reino contribui para o equilíbrio cósmico. A multiplicidade de mundos também sugere uma sociedade pluralista, com papéis distintos para deuses, humanos e seres míticos, ecoando a organização das comunidades vikings.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span style="margin-right: -70px;" class="timeline-date">Conflitos Divinos</span>
+                        <h3>A Guerra entre Æsir e Vanir</h3>
+                        <p>Antes da consolidação de Asgard, os Æsir, deuses guerreiros liderados por Odin, entraram em conflito com os Vanir, deuses da fertilidade e riqueza, como Njörd, Freyr e Freyja. A guerra, narrada na *Edda em Prosa* (*Skáldskaparmál*) e aludida na *Völuspá*, pode ter sido desencadeada por disputas sobre práticas religiosas, como o uso de magia *seiðr* por Freyja, vista com desconfiança pelos Æsir. Após um impasse, a paz foi selada com a troca de reféns: Njörd, Freyr e Freyja juntaram-se aos Æsir, enquanto Hœnir e o sábio Mimir foram enviados aos Vanir (embora Mimir tenha sido decapitado, sua cabeça foi preservada por Odin). Esse evento é crucial, pois integra os Vanir ao panteão nórdico, simbolizando a fusão de valores marciais (Æsir) e agrários (Vanir). Historicamente, a guerra pode refletir tensões entre comunidades escandinavas com diferentes práticas cultuais, evidenciando a flexibilidade religiosa da Era Viking.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Era dos Deuses</span>
+                        <h3>O Apogeu de Asgard</h3>
+                        <p>Com a paz estabelecida, os Æsir construíram Asgard, um reino de salões majestosos como Valhalla, onde Odin acolhia os *einherjar*, guerreiros mortos em batalha, preparados para lutar no Ragnarök. Asgard, conectada a Midgard pela ponte Bifröst, guardada por Heimdall, era o coração da ordem divina. Odin, o “Pai de Todos”, buscava sabedoria (como ao sacrificar um olho em Mímisbrunnr), enquanto Thor, com seu martelo Mjölnir, protegia Asgard dos gigantes de Jötunheim. Loki, o trickster, desempenhava um papel ambíguo, causando conflitos (como o roubo do martelo de Thor) e resolvendo-os com astúcia. Narrativas dessa era, como as aventuras de Thor contra o gigante Hrungnir ou a pescaria da serpente Jörmungandr, preservadas na *Edda Poética*, refletem valores vikings como coragem, lealdade e humor frente ao perigo. Essas histórias também serviam como alegorias para ensinar normas sociais e espirituais nas comunidades escandinavas.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Era da Transição</span>
+                        <h3>A Influência do Cristianismo</h3>
+                        <p>Com a cristianização da Escandinávia (séculos X–XI), a mitologia nórdica enfrentou transformações. A conversão, impulsionada por reis como Olaf Tryggvason da Noruega, levou à supressão de práticas pagãs, mas os mitos sobreviveram em textos escritos por clérigos, como Snorri Sturluson, que buscava preservar a herança cultural. A *Edda em Prosa*, por exemplo, apresenta traços cristãos, como a ênfase em uma criação ordenada, mas mantém a essência pagã, como a visão cíclica do Ragnarök. Runestones, como a Pedra de Jelling na Dinamarca, mostram a coexistência de símbolos cristãos e nórdicos, indicando uma transição gradual. Esse período marca a adaptação dos mitos nórdicos a um novo contexto religioso, garantindo sua sobrevivência, mas também sua reinterpretação, com figuras como Odin sendo ocasionalmente comparadas a deuses cristãos.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span style="margin-left: -25px;" class="timeline-date">O Futuro Profetizado</span>
+                        <h3>Ragnarök: O Crepúsculo dos Deuses</h3>
+                        <p>A mitologia nórdica culmina no Ragnarök, o “Crepúsculo dos Deuses”, uma visão apocalíptica descrita vividamente na *Völuspá*. Precedido pelo Fimbulvetr, um inverno de três anos, e por traições (como Loki se voltando contra os deuses), o Ragnarök começa com a libertação de monstros: o lobo Fenrir, a serpente Jörmungandr e o exército de mortos liderado por Hela. Odin será devorado por Fenrir, Thor morrerá ao derrotar Jörmungandr, e Surtr incendiará o cosmos com sua espada flamejante. Contudo, o mito é cíclico: a terra ressurgirá, fértil, habitada pelos humanos Líf e Lífþrasir e por deuses sobreviventes, como Baldr e Höðr. O Ragnarök reflete a aceitação viking da impermanência – um eco de sua vida marcada por guerras e incertezas – e a esperança na renovação. Diferentemente das escatologias cristãs, que enfatizam um fim definitivo, o Ragnarök celebra a continuidade do ciclo cósmico, um testemunho da resiliência cultural dos povos nórdicos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deuses -->
+        <section id="deuses" class="section fade-in delay-2">
+            <h2>Os Deuses Nórdicos</h2>
+            <p>Os deuses da mitologia nórdica são divididos principalmente em dois grupos: os Æsir e os Vanir. Os Æsir, governados por Odin, são principalmente deuses da guerra, poder e sabedoria, enquanto os Vanir estão associados à fertilidade, prosperidade e magia natural. Após uma antiga guerra entre os dois grupos, alguns Vanir passaram a viver em Asgard junto aos Æsir, estabelecendo uma paz duradoura.</p>
+            
+            <div class="gods-grid">
+                <!-- Odin -->
+                <div class="god-card" data-god="odin">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px" src="https://upload.wikimedia.org/wikipedia/commons/0/0c/NKS_1867_4to%2C_97v%2C_Odin_on_Sleipnir.jpg" alt="Odin">
+                    <div class="god-card-content">
+                        <h3>Odin</h3>
+                        <div class="god-attribute">Pai de Todos, Deus da Sabedoria e Guerra</div>
+                        <p class="god-description">Líder dos Æsir, Odin sacrificou um de seus olhos para beber da fonte da sabedoria e se enforcou na árvore Yggdrasil por nove dias para obter o conhecimento das runas.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Thor -->
+                <div class="god-card" data-god="thor">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px"  src="src/thor.jpg" alt="Thor">
+                    <div class="god-card-content">
+                        <h3>Thor</h3>
+                        <div class="god-attribute">Deus do Trovão e Protetor</div>
+                        <p class="god-description">Filho de Odin, Thor é o mais forte dos deuses, portador do martelo mágico Mjölnir. Protetor de Asgard e Midgard contra os gigantes.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Freya -->
+                <div class="god-card" data-god="freya">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px"   
+                    src="src/John_Bauer-Freja.jpg" alt="Freya">
+                    <div class="god-card-content">
+                        <h3>Freya</h3>
+                        <div class="god-attribute">Deusa do Amor, Beleza e Guerra</div>
+                        <p class="god-description">A mais importante das deusas, Freya domina a magia Seiðr e comanda as Valquírias. Metade dos guerreiros mortos em batalha vão para seu salão.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Loki -->
+                <div class="god-card" data-god="loki">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/loki.jpg" alt="Loki">
+                    <div class="god-card-content">
+                        <h3>Loki</h3>
+                        <div class="god-attribute">Deus da Trapaça e do Caos</div>
+                        <p class="god-description">Nem totalmente deus nem gigante, Loki é um trapaceiro que causa problemas para os deuses, mas frequentemente os ajuda a sair das situações que ele mesmo criou.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Heimdall -->
+                <div class="god-card" data-god="heimdall">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Processed_SAM_heimdallr.jpg" alt="Heimdall">
+                    <div class="god-card-content">
+                        <h3>Heimdall</h3>
+                        <div class="god-attribute">Guardião de Bifröst</div>
+                        <p class="god-description">Com visão e audição sobrenaturais, Heimdall guarda a ponte arco-íris que conecta Asgard e Midgard, pronto para soar o Gjallarhorn no Ragnarök.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Frigg -->
+                <div class="god-card" data-god="frigg">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Frigga_in_Myths_of_Northern_Lands_by_H_A_Guerber.jpg" alt="Frigg">
+                    <div class="god-card-content">
+                        <h3>Frigga</h3>
+                        <div class="god-attribute">Deusa do Casamento e Maternidade</div>
+                        <p class="god-description">Esposa de Odin e rainha de Asgard, Frigg é a protetora da família e do lar. Possui o dom da profecia mas raramente revela o que vê.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Tyr -->
+                <div class="god-card" data-god="tyr">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Tyr,_der_Schwertgott.jpg" alt="Tyr">
+                    <div class="god-card-content">
+                        <h3>Tyr</h3>
+                        <div class="god-attribute">Deus da Justiça e da Lei</div>
+                        <p class="god-description">Conhecido por seu sacrifício ao perder a mão direita para aprisionar o lobo Fenrir, Tyr simboliza a justiça e a coragem em batalha.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Baldr -->
+                <div class="god-card" data-god="baldr">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Baldr.jpg" alt="Baldr">
+                    <div class="god-card-content">
+                        <h3>Baldr</h3>
+                        <div class="god-attribute">Deus da Luz e Pureza</div>
+                        <p class="god-description">Filho amado de Odin e Frigg, Baldr era tão belo e justo que todas as coisas do mundo juraram não machucá-lo, exceto o visco.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                                <!-- Freyr -->
+                <div class="god-card" data-god="freyr">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Freyr_art.jpg" alt="Freyr">
+                    <div class="god-card-content">
+                        <h3>Freyr</h3>
+                        <div class="god-attribute">Deus da Fertilidade e Prosperidade</div>
+                        <p class="god-description">Irmão de Freya e um dos principais Vanir, Freyr governa a chuva, o sol e o crescimento. Dono do navio mágico Skíðblaðnir e do javali dourado Gullinbursti.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Njörd -->
+                <div class="god-card" data-god="njord">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Ed0008.jpg" alt="Njörd">
+                    <div class="god-card-content">
+                        <h3>Njörd</h3>
+                        <div class="god-attribute">Deus do Mar e dos Ventos</div>
+                        <p class="god-description">Pai de Freyr e Freya, este deus Vanir controla os mares, ventos e a pesca. Riquíssimo e generoso, garante sucesso nas expedições marítimas aos que o honram.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Idunn -->
+                <div class="god-card" data-god="idunn">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="https://www.johanegerkrans.com/cdn/shop/products/idunloresSquare.png?v=1643792931" alt="Idunn">
+                    <div class="god-card-content">
+                        <h3>Idunn</h3>
+                        <div class="god-attribute">Deusa da Juventude e Imortalidade</div>
+                        <p class="god-description">Guardiã das maçãs douradas que mantêm os deuses jovens e imortais. Sem seus frutos mágicos, os deuses envelheceriam e morreriam como humanos.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Bragi -->
+                <div class="god-card" data-god="bragi">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Bragi_by_Wahlbom.jpg" alt="Bragi">
+                    <div class="god-card-content">
+                        <h3>Bragi</h3>
+                        <div class="god-attribute">Deus da Poesia e Eloquência</div>
+                        <p class="god-description">Marido de Idunn e patrono dos poetas e bardos. Sua língua está inscrita com runas e sua habilidade com palavras é incomparável em todos os nove mundos.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Criaturas -->
+        <section id="criaturas" class="section fade-in delay-3">
+            <h2>Criaturas Míticas</h2>
+            <p>Além dos deuses e gigantes, a mitologia nórdica é rica em criaturas fantásticas que habitam os nove mundos. Desde monstros terríveis que ameaçam a ordem cósmica até seres mágicos que vivem em harmonia com a natureza.</p>
+            
+            <div class="gods-grid" >
+                <!-- Jörmungandr -->
+                <div class="god-card" data-god="Jörmungandr">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjk97VWwO3hPTopXh2YqHCkesmo6MpO9YPbj6DcA1kVcupaBvrgc2lq0wvWytMHpb5ZEAraSyn5HmLSaSu6otFel9j7AAIwajcanQQ4_UdyO87RI8pCfp41uJ8lykXtKFDZVVZAJkS-5tc/w640-h326/edouard-groult-jormungand-90.jpg" alt="Jörmungandr">
+                    <div class="god-card-content">
+                        <h3>Jörmungandr</h3>
+                        <div class="god-attribute">A Serpente de Midgard</div>
+                        <p class="god-description">Filho de Loki, esta gigantesca serpente cresceu tanto que circunda todo o mundo, mordendo sua própria cauda. Durante o Ragnarök, Thor e Jörmungandr matarão um ao outro.</p>
+                        <a href="#" class="read-more" >Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Fenrir -->
+                <div class="god-card" data-god="fenrir">
+                    <img src="https://cdnb.artstation.com/p/assets/images/images/012/774/699/large/leo-d-amico-fenrir-vs-odin.jpg?1536453547" alt="Fenrir">
+                    <div class="god-card-content">
+                        <h3>Fenrir</h3>
+                        <div class="god-attribute">O Lobo Monstruoso</div>
+                        <p class="god-description">Outro filho de Loki, Fenrir é um lobo colossal que os deuses acorrentaram devido a profecias que diziam que ele causaria grande destruição. No Ragnarök, ele se libertará e devorará Odin.</p>
+                        <a href="#" class="read-more" data-entity="fenrir">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <div class="god-card" data-god="Nidhogg">
+                    <img src="https://i.pinimg.com/736x/ef/a0/78/efa0785e30ceb0356d5c22a6c7c03421.jpg" alt="Nidhogg">
+                    <div class="god-card-content">
+                        <h3>Nidhogg</h3>
+                        <div class="god-attribute">O Devorador das Raízes</div>
+                        <p class="god-description">Nidhogg é um dragão sombrio que rói as raízes de Yggdrasil, a árvore do mundo. Ele representa as forças do caos e da destruição, e durante o Ragnarök, surgirá trazendo morte e decadência.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Valquírias -->
+                <div class="god-card" data-god="valval">
+                    <img src="https://segredosdomundo.r7.com/wp-content/uploads/2019/12/valquirias-9-curiosidades-sobre-as-guerreiras-nordicas-3.jpg" alt="Valquíria">
+                    <div class="god-card-content">
+                        <h3>Valquírias</h3>
+                        <div class="god-attribute">Escolhedoras dos Mortos</div>
+                        <p class="god-description">Mulheres guerreiras que servem a Odin, sobrevoando campos de batalha para selecionar os guerreiros mais valentes para levá-los ao Valhalla.</p>
+                        <a href="#" class="read-more"data-entity="Valquíria">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Dvergar (Anões) -->
+                <div class="god-card" data-god="Dvergar">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Two_Völuspá_Dwarves_by_Frølich.jpg" alt="Dvergar">
+                    <div class="god-card-content">
+                        <h3>Dvergar (Anões)</h3>
+                        <div class="god-attribute">Mestres Artesãos</div>
+                        <p class="god-description">Habitantes de Svartalfheim, os anões são incomparáveis ferreiros e artesãos. Criaram muitos tesouros dos deuses, incluindo o martelo de Thor e a lança de Odin.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                                <!-- Sleipnir -->
+                <div class="god-card" data-god="Sleipnir">
+                    <img src="https://cdn.shopify.com/s/files/1/0475/2261/1353/files/sleipnir_cheval_a_huit_pattes_480x480.png?v=1602247117" alt="Sleipnir">
+                    <div class="god-card-content">
+                        <h3>Sleipnir</h3>
+                        <div class="god-attribute">O Cavalo de Oito Patas</div>
+                        <p class="god-description">Filho de Loki (quando transformado em égua) e do cavalo Svadilfari, Sleipnir é o corcel de Odin, capaz de viajar entre os mundos e até mesmo até Helheim.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Ratatoskr -->
+                <div class="god-card" data-god="Ratatoskr">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/AM_738_4to_Ratatoskr.png" alt="Ratatoskr">
+                    <div class="god-card-content">
+                        <h3>Ratatoskr</h3>
+                        <div class="god-attribute">O Esquilo Mensageiro</div>
+                        <p class="god-description">Este esquilo veloz corre para cima e para baixo no tronco de Yggdrasil, levando mensagens (geralmente insultos) entre a águia no topo e a serpente Níðhöggr nas raízes.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Huginn e Muninn -->
+                <div class="god-card" data-god="corvosfdp">
+                    <img src="src/Odin_hrafnar.jpg" alt="Corvos de Odin">
+                    <div class="god-card-content">
+                        <h3>Huginn e Muninn</h3>
+                        <div class="god-attribute">Os Corvos de Odin</div>
+                        <p class="god-description">Representando o Pensamento e a Memória, estes dois corvos voam pelo mundo todos os dias e retornam para contar a Odin tudo o que viram e ouviram.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Hel -->
+                <div class="god-card" data-god="Hel">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Hel_(1889)_by_Johannes_Gehrts.jpg" alt="Hel">
+                    <div class="god-card-content">
+                        <h3>Hel</h3>
+                        <div class="god-attribute">Governante dos Mortos</div>
+                        <p class="god-description">Filha de Loki, metade de seu corpo é de uma mulher bela e outra metade é de um cadáver. Governa sobre o reino de Helheim, onde vão aqueles que não morrem em batalha.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nove Mundos -->
+        <section id="mundos" class="section fade-in">
+            <h2>Os Nove Mundos</h2>
+            <p>Segundo a cosmologia nórdica, Yggdrasil, a árvore do mundo, sustenta nove reinos distintos, cada um habitado por diferentes seres. Estes mundos interconectados formam o cosmos nórdico, oferecendo uma visão rica e complexa da realidade.</p>
+            
+            <div class="gods-grid">
+                <!-- Asgard -->
+                <div class="god-card">
+                    <img src="https://irinasopas.com/wp-content/uploads/2019/05/Asgard-1-compressor.jpg" alt="Asgard">
+                    <div class="god-card-content">
+                        <h3>Asgard</h3>
+                        <div class="god-attribute">Lar dos Æsir</div>
+                        <p class="god-description">Reino celestial onde habitam os deuses Æsir, liderados por Odin. Local do Valhalla, onde os guerreiros escolhidos pelas Valquírias festejam até o Ragnarök.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Vanaheim -->
+                <div class="god-card">
+                    <img src="https://viking.style/wp-content/uploads/2024/04/galileus2505_the_realm_in_Norse_mythology_Vanaheim_which_is_dep_de745116-c8b4-4661-a298-cc657e7df52e.jpg" alt="Vanaheim">
+                    <div class="god-card-content">
+                        <h3>Vanaheim</h3>
+                        <div class="god-attribute">Lar dos Vanir</div>
+                        <p class="god-description">Terra fértil dos deuses Vanir, associados à natureza, fertilidade e prosperidade. Local de origem de Njörd, Freyr e Freya.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Midgard -->
+                <div class="god-card">
+                    <img src="https://segredosdomundo.r7.com/wp-content/uploads/2020/08/midgard-historia-reino-dos-humanos-na-mitologia-nordica.png" alt="Midgard">
+                    <div class="god-card-content">
+                        <h3>Midgard</h3>
+                        <div class="god-attribute">O Mundo dos Humanos</div>
+                        <p class="god-description">Nosso mundo, cercado pelo oceano cósmico onde vive Jörmungandr. Conectado a Asgard pela ponte arco-íris Bifröst.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Jotunheim -->
+                <div class="god-card">
+                    <img src="https://i.pinimg.com/736x/98/22/5d/98225dca3cfe42647722cbd2d87af18f.jpg" alt="Jotunheim">
+                    <div class="god-card-content">
+                        <h3>Jotunheim</h3>
+                        <div class="god-attribute">Reino dos Gigantes</div>
+                        <p class="god-description">Terra montanhosa e selvagem, lar dos jötnar (gigantes), frequentemente inimigos dos deuses, embora muitos deuses tenham origens ou relações com gigantes.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Niflheim -->
+                <div class="god-card">
+                    <img src="https://segredosdomundo.r7.com/wp-content/uploads/2020/08/niflheim-origem-e-caracteristicas-do-reino-dos-mortos-nordico.png" alt="Niflheim">
+                    <div class="god-card-content">
+                        <h3>Niflheim</h3>
+                        <div class="god-attribute">Mundo da Névoa</div>
+                        <p class="god-description">Reino primordial de gelo, névoa e escuridão. Contém Hvergelmir, a fonte de todos os rios, e está conectado a Helheim.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Muspelheim -->
+                <div class="god-card">
+                    <img src="https://viking-herald.s3.eu-west-1.amazonaws.com/photos/shares/Muspelheim_1_-_The_Viking_Herald.jpg" alt="Muspelheim">
+                    <div class="god-card-content">
+                        <h3>Muspelheim</h3>
+                        <div class="god-attribute">Reino do Fogo</div>
+                        <p class="god-description">Terra ardente governada pelo gigante de fogo Surtr, que no Ragnarök virá com sua espada flamejante para incendiar o mundo.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                <!-- Alfheim -->
+                <div class="god-card">
+                    <img src="https://orbedosdragoes.com/wp-content/uploads/2018/09/Forgotten_Imperio-de-Cormanthyr.jpg" alt="Alfheim">
+                    <div class="god-card-content">
+                        <h3>Alfheim</h3>
+                        <div class="god-attribute">Reino dos Elfos da Luz</div>
+                        <p class="god-description">Uma terra luminosa governada por Freyr, onde habitam os elfos claros (ljósálfar), seres mágicos e belos que rivalizam com os deuses em beleza e longevidade.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Svartalfheim -->
+                <div class="god-card">
+                    <img src="https://irinasopas.com/wp-content/uploads/2019/05/Svartalfheim-1-compressor.png" alt="Svartalfheim">
+                    <div class="god-card-content">
+                        <h3>Svartalfheim</h3>
+                        <div class="god-attribute">Reino dos Anões</div>
+                        <p class="god-description">Mundo subterrâneo onde os anões (dvergar) forjam tesouros mágicos em suas forjas. Artesãos incomparáveis, criaram as maiores armas e joias dos deuses.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Helheim -->
+                <div class="god-card">
+                    <img src="https://blog.vkngjewelry.com/wp-content/uploads/2020/04/Helheim_-The-Underworld.png" alt="Helheim">
+                    <div class="god-card-content">
+                        <h3>Helheim</h3>
+                        <div class="god-attribute">Reino dos Mortos</div>
+                        <p class="god-description">Domínio sombrio governado pela deusa Hel, filha de Loki. Destino da maioria dos mortos por doença ou velhice, separado do mundo dos vivos pelo rio Gjöll.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curiosidades -->
+        <section id="curiosidades" class="section fade-in delay-1">
+            <h2>Curiosidades da Mitologia Nórdica</h2>
+            <p>Quer saber uns detalhes irados sobre a mitologia nórdica? Os vikings tinham histórias e crenças que são puro ouro! Vem comigo nessa roda de conversa pra descobrir umas pérolas que mostram como eles viam o mundo, os deuses e até o destino!</p>
+            
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <h3>Dias da Semana Viking Style</h3>
+                    <p>Sabia que os dias da semana em inglês têm DNA nórdico? Tuesday é do Tyr, o deus da guerra. Wednesday é Odin, o chefão. Thursday é Thor, o cara do trovão. E Friday? Frigg ou Freyja, as rainhas do amor. Os vikings tão até no nosso calendário!</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Berserkers: Os Malucos de Odin</h3>
+                    <p>Imagina uns guerreiros tão doidos que lutavam sem sentir dor, como se Odin tivesse dado um “buff” neles! Esses eram os berserkers, que usavam peles de urso ou lutavam sem camisa, entrando num transe louco. Dizem que era o espírito de Odin neles!</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>As Nornas Mandam no Destino</h3>
+                    <p>Ninguém escapa das Nornas! Urðr, Verðandi e Skuld são tipo as “chefes do destino”, tecendo o que vai acontecer com todo mundo, até com Odin. É o tal do *wyrd*: o futuro já tá escrito, mas você ainda tem que correr atrás!</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Valhalla Não É o Único Local de Descanso</h3>
+                    <p>Todo mundo fala do Valhalla, o “clube VIP” de Odin pros guerreiros. Mas tem mais! Freyja leva metade dos bravos pro Fólkvangr, um campo irado. Afogados vão pro salão da Rán, e a galera comum descansa no Helheim. Nada de céu ou inferno, é bem mais variado!</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Os Filhos Bizarros de Loki</h3>
+                    <p>Loki é aquele pai... peculiar. Com a giganta Angrboda, ele teve Fenrir, um lobo monstro; Jörmungandr, a serpente que abraça o mundo; e Hela, a rainha dos mortos. E, pasme: ele virou égua e deu à luz Sleipnir, o cavalo de oito patas de Odin!</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Hidromel: O Licor dos Poetas</h3>
+                    <p>Quer virar poeta? Toma um gole do hidromel da poesia! Feito do sangue do sábio Kvasir, esse drink mágico tava com um gigante até Odin dar um jeitinho: virou cobra, seduziu a filha do gigante e voou como águia pra roubar. Agora, poetas e deuses têm inspiração garantida!</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Naglfar, o Navio de Unhas</h3>
+                    <p>No Ragnarök, um navio feito de unhas de mortos, o Naglfar, vai trazer gigantes pra batalha final. Por isso, os vikings cortavam as unhas dos falecidos, pra atrasar esse “barco do apocalipse”. Imagina a tensão de deixar uma unha crescer!</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Runas: Letras com Magia</h3>
+                    <p>As runas não eram só letrinhas. Odin se pendurou em Yggdrasil por nove noites pra aprendê-las, e elas viraram pura magia! Gravavam runas em espadas e pedras pra proteção ou pra prever o futuro. É tipo o WhatsApp dos deuses!</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Seiðr: A Magia das Völvas</h3>
+                    <p>As *völvas*, mulheres místicas, faziam *seiðr*, uma magia pra ver o futuro ou mexer com o destino. Freyja ensinou isso pros deuses, e até Odin se arriscou, mesmo sendo “coisa de mulher”. Essas ladies eram o poder por trás dos tronos vikings!</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Elfos e o Álfablót</h3>
+                    <p>Os elfos de Alfheim eram tipo “espíritos da natureza”, trazendo sorte e colheitas boas. Os vikings faziam o *álfablót*, oferecendo comida em pedras especiais pra agradar eles. Era uma festinha secreta pra garantir a vibe positiva!</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Seu Deus, Sua Personalidade</h3>
+                    <p>Todo viking tinha um deus favorito. Guerreiros curtiam Odin ou Thor, pra força e glória. Fazendeiros iam de Freyr ou Freyja, pra terras férteis e amor. Tinha até amuleto de martelo do Thor pra carregar a proteção no peito!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section id="quiz" class="section fade-in delay-2">
+            <h2>Teste seus Conhecimentos</h2>
+            <p>Quanto você aprendeu sobre a mitologia nórdica? Teste seus conhecimentos com este quiz interativo!</p>
+            
+            <div class="quiz-container" id="quizContainer">
+                <div id="questionContainer">
+                    <div class="quiz-question" id="question"></div>
+                    <div class="quiz-options" id="options"></div>
+                    <button class="quiz-btn" id="nextBtn">Próxima Pergunta</button>
+                </div>
+                <div id="resultsContainer" style="display: none;">
+                    <h3>Resultados</h3>
+                    <p id="score"></p>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <p id="feedback"></p>
+                    <button class="quiz-btn" id="restartBtn">Reiniciar Quiz</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modais -->
+    <div class="modal" id="godModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <img id="modalGodIcon" src="" alt="">
+                <div class="modal-title">
+                    <h2 id="modalGodName"></h2>
+                    <div class="modal-subtitle" id="modalGodTitle"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalGodImage" src="" alt="">
+                </div>
+                <div class="modal-text" id="modalGodDescription"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Recursos para estudar mais a fundo</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.amazon.com/s?k=mitologia+nordica&i=stripbooks-intl-ship&__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91">Livros</a></li>
+                    <li><a href="https://www.imdb.com/list/ls080583197/">Filmes & Séries</a></li>
+                    <li><a href="https://es.wikipedia.org/wiki/Mitolog%C3%ADa_n%C3%B3rdica">Fontes Históricas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Sobre o Site</h3>
+                <p>Este site foi criado como um recurso educacional para ensinar sobre a rica mitologia nórdica e sua influência cultural. Feito pelo Pedro rsrs</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mitologia Nórdica - Feito por Pedro</p>
+        </div>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>

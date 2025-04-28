@@ -1,0 +1,2446 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitologia Nórdica - Viagem ao Mundo dos Deuses</title>
+	<style>
+
+
+        :root {
+            --primary-color: #1a2c38;
+            --secondary-color: #8b4513;
+            --accent-color: #c0a080;
+            --text-color: #e6e6e6;
+            --background-light: #2c3e50;
+            --background-dark: #1a2c38;
+            --rune-font: 'Norse', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --main-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--background-dark) 0%, var(--background-light) 100%);
+            color: var(--text-color);
+            font-family: var(--main-font);
+            line-height: 1.6;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* Runas flutuantes */
+        .runes-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.04;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .rune {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--accent-color);
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Cabeçalho */
+        header {
+            position: relative;
+            background: url(src/yggdrasil.jpg) center/cover no-repeat;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            font-family: var(--rune-font);
+        }
+
+        h1::after {
+            content: "";
+            display: block;
+            width: 150px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 0.5rem auto;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Navegação */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 1rem 0;
+            color: var(--accent-color);
+            font-family: var(--rune-font);
+            letter-spacing: 1px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 0.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 1rem;
+            display: block;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0.5rem;
+            left: 1rem;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: calc(100% - 2rem);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Seções do Site */
+        .section {
+            margin-bottom: 4rem;
+            background-color: rgba(26, 44, 56, 0.7);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            font-family: var(--rune-font);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: "";
+            display: block;
+            width: 70%;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin-top: 0.5rem;
+        }
+
+        .section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Grade dos deuses */
+        .gods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .god-card {
+            background: linear-gradient(145deg, rgba(44, 62, 80, 0.7), rgba(26, 44, 56, 0.9));
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .god-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .god-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .god-card-content {
+            padding: 1.5rem;
+        }
+
+        .god-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .god-attribute {
+            font-style: italic;
+            color: #a0a0a0;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .god-description {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #d6b393;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin: 3rem 0;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 2rem;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 30px;
+            left: 50%;
+        }
+
+        .timeline-content {
+            background: linear-gradient(145deg, rgba(44, 62, 80, 0.8), rgba(26, 44, 56, 0.95));
+            border-radius: 8px;
+            padding: 1.5rem;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -15px;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid rgba(26, 44, 56, 0.95);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: auto;
+            left: -15px;
+            border-left: none;
+            border-right: 15px solid rgba(26, 44, 56, 0.95);
+        }
+
+        .timeline-date {
+            position: absolute;
+            top: 10px;
+            right: -200px;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            right: auto;
+            left: -200px;
+            text-align: right;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        /* Grid para a página de curiosidades */
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .fact-card {
+            background: linear-gradient(145deg, rgba(44, 62, 80, 0.7), rgba(26, 44, 56, 0.9));
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .fact-card::before {
+            content: '❯';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            opacity: 0.3;
+        }
+
+        .fact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            padding-left: 1.5rem;
+        }
+
+        /* Modal para deuses */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 2rem 0;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, var(--background-light), var(--background-dark));
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            color: var(--accent-color);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #fff;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(192, 160, 128, 0.3);
+            padding-bottom: 1rem;
+        }
+
+        .modal-header img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 1.5rem;
+            border: 3px solid var(--accent-color);
+        }
+
+        .modal-title {
+            flex: 1;
+        }
+
+        .modal-title h2 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-subtitle {
+            font-style: italic;
+            color: #a0a0a0;
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .modal-image {
+            grid-column: 1 / 2;
+        }
+
+        .modal-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-text {
+            grid-column: 2 / 3;
+        }
+
+        .modal-text h3 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .modal-text p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .facts-list {
+            margin-top: 1rem;
+        }
+
+        .facts-list li {
+            margin-bottom: 0.7rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .facts-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Quiz */
+        .quiz-container {
+            background: linear-gradient(145deg, rgba(44, 62, 80, 0.8), rgba(26, 44, 56, 0.95));
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .quiz-question {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-option {
+            background: rgba(44, 62, 80, 0.6);
+            border: 2px solid var(--background-light);
+            border-radius: 6px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: rgba(44, 62, 80, 0.8);
+            border-color: var(--accent-color);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--accent-color);
+            background: rgba(139, 69, 19, 0.3);
+        }
+
+        .quiz-btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .quiz-btn:hover {
+            background-color: #d6b393;
+        }
+
+        .quiz-results {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: rgba(26, 44, 56, 0.7);
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: var(--accent-color);
+            width: 0;
+            transition: width 0.5s ease;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 992px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-image, .modal-text {
+                grid-column: 1 / 2;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-content::before {
+                left: -15px;
+                border-left: none;
+                border-right: 15px solid rgba(26, 44, 56, 0.95);
+            }
+
+            .timeline-date {
+                position: relative;
+                top: auto;
+                right: auto;
+                left: auto;
+                margin-bottom: 0.5rem;
+                display: block;
+            }
+
+            .timeline-item:nth-child(even) .timeline-date {
+                right: auto;
+                left: auto;
+                text-align: left;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-top {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+                width: 100%;
+            }
+
+            .nav-links a {
+                padding: 0.8rem 1rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+</style>
+</head>
+<body>
+    <!-- Runas de fundo -->
+    <div class="runes-background" id="runesBackground"></div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="header-content">
+            <h1>MITOLOGIA NÓRDICA</h1>
+            <p class="subtitle">Uma jornada pelos Nove Mundos de Yggdrasil</p>
+        </div>
+    </header>
+
+    <!-- Navegação -->
+    <nav id="mainNav">
+        <div class="nav-container">
+            <div class="nav-top">
+                <div class="logo">Midgard</div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#introducao">Introdução</a></li>
+                <li><a href="#historia">História</a></li>
+                <li><a href="#deuses">Deuses</a></li>
+                <li><a href="#criaturas">Criaturas</a></li>
+                <li><a href="#mundos">Nove Mundos</a></li>
+                <li><a href="#curiosidades">Curiosidades</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <!-- Introdução -->
+        <section id="introducao" class="section fade-in">
+            <h2>Introdução à Mitologia Nórdica</h2>
+            <p>A mitologia nórdica representa o conjunto de lendas, crenças e práticas religiosas dos povos nórdicos antigos, principalmente os escandinavos (suecos, dinamarqueses, noruegueses e islandeses) durante a Era Viking (790–1100 d.C.). Sua rica cosmologia, preenchida com deuses poderosos, gigantes ameaçadores e criaturas fantásticas, continua fascinando o mundo moderno.</p>
+            <p>Nestas terras geladas do norte, os habitantes desenvolveram histórias que explicavam a criação do mundo, os fenômenos naturais, e o destino final de tudo no apocalíptico Ragnarök. Diferente de outras mitologias, os deuses nórdicos não eram imortais ou perfeitos - eles possuíam falhas, medos e sabiam que um dia enfrentariam seu fim.</p>
+            <p>A mitologia nórdica chegou até nós principalmente através de dois textos fundamentais: a <em>Edda em Prosa</em> e a <em>Edda Poética</em>, escritas no século XIII, séculos após a cristianização da Escandinávia. Estas fontes, junto com sagas islandesas, poemas escáldicos e evidências arqueológicas, oferecem uma visão das crenças que guiavam a vida dos antigos nórdicos.</p>
+            <p>Neste site, embarcaremos em uma jornada pelos nove mundos sustentados pela árvore cósmica Yggdrasil, conheceremos os deuses do Asgard, os gigantes de Jotunheim, e exploraremos os mitos que moldaram uma das culturas mais fascinantes da história humana.</p>
+        </section>
+
+        <!-- História e Cosmologia -->
+        <section id="historia" class="section fade-in delay-1">
+            <h2>História e Cosmologia</h2>
+            <p>A cosmologia nórdica é centrada em torno de Yggdrasil, o freixo cósmico que sustenta todos os nove mundos. Esta árvore gigantesca conecta os reinos dos deuses, gigantes, humanos, elfos, anões e mortos. Na base de Yggdrasil, a serpente Níðhöggr constantemente rói suas raízes, enquanto no topo, uma águia observa todos os mundos.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Antes do Tempo</span>
+                        <h3>A Criação</h3>
+                        <p>No início, existia apenas o vazio chamado Ginnungagap. Ao norte deste abismo estava Niflheim, um mundo de gelo, e ao sul, Muspelheim, o mundo de fogo. Quando o gelo e o fogo se encontraram no Ginnungagap, surgiram os primeiros seres: o gigante primordial Ymir e a vaca Audumbla, de cujo leite Ymir se alimentava.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Primórdios</span>
+                        <h3>Bor e Seus Filhos</h3>
+                        <p>Enquanto Audumbla lambia o gelo, ela libertou Buri, que teve um filho chamado Bor. Este, por sua vez, teve três filhos com a giganta Bestla: Odin, Vili e Vé. Os três irmãos mataram Ymir e, com seu corpo, criaram o mundo. Seu sangue formou os mares, sua carne a terra, seus ossos as montanhas, e seu crânio o céu.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span style="margin-right: -40px;" class="timeline-date">A Criação de Midgard</span>
+                        <h3>O Mundo dos Humanos</h3>
+                        <p>Os três irmãos encontraram dois troncos de árvore na praia e, a partir deles, criaram o primeiro homem (Ask) e a primeira mulher (Embla). Odin lhes deu vida e alma, Vili deu-lhes inteligência e sentimentos, e Vé deu-lhes sentidos, fala e aparência. Estes foram os primeiros humanos que habitaram Midgard.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Era dos Deuses</span>
+                        <h3>O Reino de Asgard</h3>
+                        <p>Os Æsir (deuses principais) construíram para si o reino de Asgard, conectado a Midgard pela ponte Bifröst (o arco-íris). Sob a liderança de Odin, os deuses estabeleceram leis e ordem. Foi neste período que as grandes histórias dos deuses ocorreram, incluindo as aventuras de Thor contra os gigantes e as intrigas de Loki.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">O Futuro</span>
+                        <h3>Ragnarök</h3>
+                        <p>Segundo as profecias, o mundo está destinado a terminar no Ragnarök, "O Crepúsculo dos Deuses". Neste apocalipse, muitos deuses, incluindo Odin, Thor e Freyr, morrerão lutando contra monstros e gigantes. O mundo será submerso em água e depois ressurgirá, fértil e renovado, para ser povoado pelos dois humanos sobreviventes, Líf e Lífþrasir, e pelos deuses que sobreviverem.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deuses -->
+        <section id="deuses" class="section fade-in delay-2">
+            <h2>Os Deuses Nórdicos</h2>
+            <p>Os deuses da mitologia nórdica são divididos principalmente em dois grupos: os Æsir e os Vanir. Os Æsir, governados por Odin, são principalmente deuses da guerra, poder e sabedoria, enquanto os Vanir estão associados à fertilidade, prosperidade e magia natural. Após uma antiga guerra entre os dois grupos, alguns Vanir passaram a viver em Asgard junto aos Æsir, estabelecendo uma paz duradoura.</p>
+            
+            <div class="gods-grid">
+                <!-- Odin -->
+                <div class="god-card" data-god="odin">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px" src="https://upload.wikimedia.org/wikipedia/commons/0/0c/NKS_1867_4to%2C_97v%2C_Odin_on_Sleipnir.jpg" alt="Odin">
+                    <div class="god-card-content">
+                        <h3>Odin</h3>
+                        <div class="god-attribute">Pai de Todos, Deus da Sabedoria e Guerra</div>
+                        <p class="god-description">Líder dos Æsir, Odin sacrificou um de seus olhos para beber da fonte da sabedoria e se enforcou na árvore Yggdrasil por nove dias para obter o conhecimento das runas.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Thor -->
+                <div class="god-card" data-god="thor">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px"  src="src/thor.jpg" alt="Thor">
+                    <div class="god-card-content">
+                        <h3>Thor</h3>
+                        <div class="god-attribute">Deus do Trovão e Protetor</div>
+                        <p class="god-description">Filho de Odin, Thor é o mais forte dos deuses, portador do martelo mágico Mjölnir. Protetor de Asgard e Midgard contra os gigantes.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Freya -->
+                <div class="god-card" data-god="freya">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px"   
+                    src="src/John_Bauer-Freja.jpg" alt="Freya">
+                    <div class="god-card-content">
+                        <h3>Freya</h3>
+                        <div class="god-attribute">Deusa do Amor, Beleza e Guerra</div>
+                        <p class="god-description">A mais importante das deusas, Freya domina a magia Seiðr e comanda as Valquírias. Metade dos guerreiros mortos em batalha vão para seu salão.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Loki -->
+                <div class="god-card" data-god="loki">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/loki.jpg" alt="Loki">
+                    <div class="god-card-content">
+                        <h3>Loki</h3>
+                        <div class="god-attribute">Deus da Trapaça e do Caos</div>
+                        <p class="god-description">Nem totalmente deus nem gigante, Loki é um trapaceiro que causa problemas para os deuses, mas frequentemente os ajuda a sair das situações que ele mesmo criou.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Heimdall -->
+                <div class="god-card" data-god="heimdall">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Processed_SAM_heimdallr.jpg" alt="Heimdall">
+                    <div class="god-card-content">
+                        <h3>Heimdall</h3>
+                        <div class="god-attribute">Guardião de Bifröst</div>
+                        <p class="god-description">Com visão e audição sobrenaturais, Heimdall guarda a ponte arco-íris que conecta Asgard e Midgard, pronto para soar o Gjallarhorn no Ragnarök.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Frigg -->
+                <div class="god-card" data-god="frigg">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Frigga_in_Myths_of_Northern_Lands_by_H_A_Guerber.jpg" alt="Frigg">
+                    <div class="god-card-content">
+                        <h3>Frigga</h3>
+                        <div class="god-attribute">Deusa do Casamento e Maternidade</div>
+                        <p class="god-description">Esposa de Odin e rainha de Asgard, Frigg é a protetora da família e do lar. Possui o dom da profecia mas raramente revela o que vê.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Tyr -->
+                <div class="god-card" data-god="tyr">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Tyr,_der_Schwertgott.jpg" alt="Tyr">
+                    <div class="god-card-content">
+                        <h3>Tyr</h3>
+                        <div class="god-attribute">Deus da Justiça e da Lei</div>
+                        <p class="god-description">Conhecido por seu sacrifício ao perder a mão direita para aprisionar o lobo Fenrir, Tyr simboliza a justiça e a coragem em batalha.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Baldr -->
+                <div class="god-card" data-god="baldr">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Baldr.jpg" alt="Baldr">
+                    <div class="god-card-content">
+                        <h3>Baldr</h3>
+                        <div class="god-attribute">Deus da Luz e Pureza</div>
+                        <p class="god-description">Filho amado de Odin e Frigg, Baldr era tão belo e justo que todas as coisas do mundo juraram não machucá-lo, exceto o visco.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                                <!-- Freyr -->
+                <div class="god-card" data-god="freyr">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Freyr_art.jpg" alt="Freyr">
+                    <div class="god-card-content">
+                        <h3>Freyr</h3>
+                        <div class="god-attribute">Deus da Fertilidade e Prosperidade</div>
+                        <p class="god-description">Irmão de Freya e um dos principais Vanir, Freyr governa a chuva, o sol e o crescimento. Dono do navio mágico Skíðblaðnir e do javali dourado Gullinbursti.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Njörd -->
+                <div class="god-card" data-god="njord">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Ed0008.jpg" alt="Njörd">
+                    <div class="god-card-content">
+                        <h3>Njörd</h3>
+                        <div class="god-attribute">Deus do Mar e dos Ventos</div>
+                        <p class="god-description">Pai de Freyr e Freya, este deus Vanir controla os mares, ventos e a pesca. Riquíssimo e generoso, garante sucesso nas expedições marítimas aos que o honram.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Idunn -->
+                <div class="god-card" data-god="idunn">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="https://www.johanegerkrans.com/cdn/shop/products/idunloresSquare.png?v=1643792931" alt="Idunn">
+                    <div class="god-card-content">
+                        <h3>Idunn</h3>
+                        <div class="god-attribute">Deusa da Juventude e Imortalidade</div>
+                        <p class="god-description">Guardiã das maçãs douradas que mantêm os deuses jovens e imortais. Sem seus frutos mágicos, os deuses envelheceriam e morreriam como humanos.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Bragi -->
+                <div class="god-card" data-god="bragi">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Bragi_by_Wahlbom.jpg" alt="Bragi">
+                    <div class="god-card-content">
+                        <h3>Bragi</h3>
+                        <div class="god-attribute">Deus da Poesia e Eloquência</div>
+                        <p class="god-description">Marido de Idunn e patrono dos poetas e bardos. Sua língua está inscrita com runas e sua habilidade com palavras é incomparável em todos os nove mundos.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Criaturas -->
+        <section id="criaturas" class="section fade-in delay-3">
+            <h2>Criaturas Míticas</h2>
+            <p>Além dos deuses e gigantes, a mitologia nórdica é rica em criaturas fantásticas que habitam os nove mundos. Desde monstros terríveis que ameaçam a ordem cósmica até seres mágicos que vivem em harmonia com a natureza.</p>
+            
+            <div class="gods-grid">
+                <!-- Jörmungandr -->
+                <div class="god-card">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjk97VWwO3hPTopXh2YqHCkesmo6MpO9YPbj6DcA1kVcupaBvrgc2lq0wvWytMHpb5ZEAraSyn5HmLSaSu6otFel9j7AAIwajcanQQ4_UdyO87RI8pCfp41uJ8lykXtKFDZVVZAJkS-5tc/w640-h326/edouard-groult-jormungand-90.jpg" alt="jormungandr">
+                    <div class="god-card-content">
+                        <h3>Jörmungandr</h3>
+                        <div class="god-attribute">A Serpente de Midgard</div>
+                        <p class="god-description">Filho de Loki, esta gigantesca serpente cresceu tanto que circunda todo o mundo, mordendo sua própria cauda. Durante o Ragnarök, Thor e Jörmungandr matarão um ao outro.</p>
+                        <a href="#" class="read-more" data-entity="jormungandr">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Fenrir -->
+                <div class="god-card">
+                    <img src="https://cdnb.artstation.com/p/assets/images/images/012/774/699/large/leo-d-amico-fenrir-vs-odin.jpg?1536453547" alt="Fenrir">
+                    <div class="god-card-content">
+                        <h3>Fenrir</h3>
+                        <div class="god-attribute">O Lobo Monstruoso</div>
+                        <p class="god-description">Outro filho de Loki, Fenrir é um lobo colossal que os deuses acorrentaram devido a profecias que diziam que ele causaria grande destruição. No Ragnarök, ele se libertará e devorará Odin.</p>
+                        <a href="#" class="read-more" data-entity="fenrir">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Valquírias -->
+                <div class="god-card">
+                    <img src="https://segredosdomundo.r7.com/wp-content/uploads/2019/12/valquirias-9-curiosidades-sobre-as-guerreiras-nordicas-3.jpg" alt="Valquírias">
+                    <div class="god-card-content">
+                        <h3>Valquírias</h3>
+                        <div class="god-attribute">Escolhedoras dos Mortos</div>
+                        <p class="god-description">Mulheres guerreiras que servem a Odin, sobrevoando campos de batalha para selecionar os guerreiros mais valentes para levá-los ao Valhalla.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Dvergar (Anões) -->
+                <div class="god-card">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Two_Völuspá_Dwarves_by_Frølich.jpg" alt="Dvergar">
+                    <div class="god-card-content">
+                        <h3>Dvergar (Anões)</h3>
+                        <div class="god-attribute">Mestres Artesãos</div>
+                        <p class="god-description">Habitantes de Svartalfheim, os anões são incomparáveis ferreiros e artesãos. Criaram muitos tesouros dos deuses, incluindo o martelo de Thor e a lança de Odin.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                                <!-- Sleipnir -->
+                <div class="god-card">
+                    <img src="https://cdn.shopify.com/s/files/1/0475/2261/1353/files/sleipnir_cheval_a_huit_pattes_480x480.png?v=1602247117" alt="Sleipnir">
+                    <div class="god-card-content">
+                        <h3>Sleipnir</h3>
+                        <div class="god-attribute">O Cavalo de Oito Patas</div>
+                        <p class="god-description">Filho de Loki (quando transformado em égua) e do cavalo Svadilfari, Sleipnir é o corcel de Odin, capaz de viajar entre os mundos e até mesmo até Helheim.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Ratatoskr -->
+                <div class="god-card">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/AM_738_4to_Ratatoskr.png" alt="Ratatoskr">
+                    <div class="god-card-content">
+                        <h3>Ratatoskr</h3>
+                        <div class="god-attribute">O Esquilo Mensageiro</div>
+                        <p class="god-description">Este esquilo veloz corre para cima e para baixo no tronco de Yggdrasil, levando mensagens (geralmente insultos) entre a águia no topo e a serpente Níðhöggr nas raízes.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Huginn e Muninn -->
+                <div class="god-card">
+                    <img src="src/Odin_hrafnar.jpg" alt="Huginn e Muninn">
+                    <div class="god-card-content">
+                        <h3>Huginn e Muninn</h3>
+                        <div class="god-attribute">Os Corvos de Odin</div>
+                        <p class="god-description">Representando o Pensamento e a Memória, estes dois corvos voam pelo mundo todos os dias e retornam para contar a Odin tudo o que viram e ouviram.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Hel -->
+                <div class="god-card">
+                    <img style="width: 100%; 
+                    height: 200px;
+                    object-fit: cover;
+                    object-position: center 1px;" src="src/Hel_(1889)_by_Johannes_Gehrts.jpg" alt="Hel">
+                    <div class="god-card-content">
+                        <h3>Hel</h3>
+                        <div class="god-attribute">Governante dos Mortos</div>
+                        <p class="god-description">Filha de Loki, metade de seu corpo é de uma mulher bela e outra metade é de um cadáver. Governa sobre o reino de Helheim, onde vão aqueles que não morrem em batalha.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nove Mundos -->
+        <section id="mundos" class="section fade-in">
+            <h2>Os Nove Mundos</h2>
+            <p>Segundo a cosmologia nórdica, Yggdrasil, a árvore do mundo, sustenta nove reinos distintos, cada um habitado por diferentes seres. Estes mundos interconectados formam o cosmos nórdico, oferecendo uma visão rica e complexa da realidade.</p>
+            
+            <div class="gods-grid">
+                <!-- Asgard -->
+                <div class="god-card">
+                    <img src="https://irinasopas.com/wp-content/uploads/2019/05/Asgard-1-compressor.jpg" alt="Asgard">
+                    <div class="god-card-content">
+                        <h3>Asgard</h3>
+                        <div class="god-attribute">Lar dos Æsir</div>
+                        <p class="god-description">Reino celestial onde habitam os deuses Æsir, liderados por Odin. Local do Valhalla, onde os guerreiros escolhidos pelas Valquírias festejam até o Ragnarök.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Vanaheim -->
+                <div class="god-card">
+                    <img src="https://viking.style/wp-content/uploads/2024/04/galileus2505_the_realm_in_Norse_mythology_Vanaheim_which_is_dep_de745116-c8b4-4661-a298-cc657e7df52e.jpg" alt="Vanaheim">
+                    <div class="god-card-content">
+                        <h3>Vanaheim</h3>
+                        <div class="god-attribute">Lar dos Vanir</div>
+                        <p class="god-description">Terra fértil dos deuses Vanir, associados à natureza, fertilidade e prosperidade. Local de origem de Njörd, Freyr e Freya.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Midgard -->
+                <div class="god-card">
+                    <img src="https://segredosdomundo.r7.com/wp-content/uploads/2020/08/midgard-historia-reino-dos-humanos-na-mitologia-nordica.png" alt="Midgard">
+                    <div class="god-card-content">
+                        <h3>Midgard</h3>
+                        <div class="god-attribute">O Mundo dos Humanos</div>
+                        <p class="god-description">Nosso mundo, cercado pelo oceano cósmico onde vive Jörmungandr. Conectado a Asgard pela ponte arco-íris Bifröst.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Jotunheim -->
+                <div class="god-card">
+                    <img src="https://i.pinimg.com/736x/98/22/5d/98225dca3cfe42647722cbd2d87af18f.jpg" alt="Jotunheim">
+                    <div class="god-card-content">
+                        <h3>Jotunheim</h3>
+                        <div class="god-attribute">Reino dos Gigantes</div>
+                        <p class="god-description">Terra montanhosa e selvagem, lar dos jötnar (gigantes), frequentemente inimigos dos deuses, embora muitos deuses tenham origens ou relações com gigantes.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Niflheim -->
+                <div class="god-card">
+                    <img src="https://segredosdomundo.r7.com/wp-content/uploads/2020/08/niflheim-origem-e-caracteristicas-do-reino-dos-mortos-nordico.png" alt="Niflheim">
+                    <div class="god-card-content">
+                        <h3>Niflheim</h3>
+                        <div class="god-attribute">Mundo da Névoa</div>
+                        <p class="god-description">Reino primordial de gelo, névoa e escuridão. Contém Hvergelmir, a fonte de todos os rios, e está conectado a Helheim.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                
+                <!-- Muspelheim -->
+                <div class="god-card">
+                    <img src="https://viking-herald.s3.eu-west-1.amazonaws.com/photos/shares/Muspelheim_1_-_The_Viking_Herald.jpg" alt="Muspelheim">
+                    <div class="god-card-content">
+                        <h3>Muspelheim</h3>
+                        <div class="god-attribute">Reino do Fogo</div>
+                        <p class="god-description">Terra ardente governada pelo gigante de fogo Surtr, que no Ragnarök virá com sua espada flamejante para incendiar o mundo.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+                <!-- Alfheim -->
+                <div class="god-card">
+                    <img src="https://orbedosdragoes.com/wp-content/uploads/2018/09/Forgotten_Imperio-de-Cormanthyr.jpg" alt="Alfheim">
+                    <div class="god-card-content">
+                        <h3>Alfheim</h3>
+                        <div class="god-attribute">Reino dos Elfos da Luz</div>
+                        <p class="god-description">Uma terra luminosa governada por Freyr, onde habitam os elfos claros (ljósálfar), seres mágicos e belos que rivalizam com os deuses em beleza e longevidade.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Svartalfheim -->
+                <div class="god-card">
+                    <img src="https://irinasopas.com/wp-content/uploads/2019/05/Svartalfheim-1-compressor.png" alt="Svartalfheim">
+                    <div class="god-card-content">
+                        <h3>Svartalfheim</h3>
+                        <div class="god-attribute">Reino dos Anões</div>
+                        <p class="god-description">Mundo subterrâneo onde os anões (dvergar) forjam tesouros mágicos em suas forjas. Artesãos incomparáveis, criaram as maiores armas e joias dos deuses.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+
+                <!-- Helheim -->
+                <div class="god-card">
+                    <img src="https://blog.vkngjewelry.com/wp-content/uploads/2020/04/Helheim_-The-Underworld.png" alt="Helheim">
+                    <div class="god-card-content">
+                        <h3>Helheim</h3>
+                        <div class="god-attribute">Reino dos Mortos</div>
+                        <p class="god-description">Domínio sombrio governado pela deusa Hel, filha de Loki. Destino da maioria dos mortos por doença ou velhice, separado do mundo dos vivos pelo rio Gjöll.</p>
+                        <a href="#" class="read-more">Saiba mais</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curiosidades -->
+        <section id="curiosidades" class="section fade-in delay-1">
+            <h2>Curiosidades</h2>
+            <p>A mitologia nórdica está repleta de detalhes fascinantes que revelam muito sobre a cultura e visão de mundo dos povos escandinavos. Confira algumas curiosidades interessantes:</p>
+            
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <h3>A Origem dos Dias da Semana</h3>
+                    <p>Vários dias da semana em inglês são nomeados após deuses nórdicos: Tuesday (Tyr), Wednesday (Odin/Woden), Thursday (Thor) e Friday (Freya/Frigg).</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Bebendo em Crânios Inimigos</h3>
+                    <p>Ao contrário da crença popular, não há evidências históricas de que os vikings realmente bebiam de crânios de inimigos. Este mito se originou de uma tradução incorreta da frase "beber das curvas dos crânios", que se referia a chifres de beber.</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Berserkers</h3>
+                    <p>Os berserkers eram guerreiros que lutavam em um estado de fúria incontrolável, supostamente imunes à dor. O nome pode significar "pele de urso" ou "sem camisa", e acredita-se que estavam sob a influência de Odin durante seus transes de batalha.</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>As Nornas e o Destino</h3>
+                    <p>O destino (wyrd) era um conceito central na visão nórdica. As Nornas - Urðr (passado), Verðandi (presente) e Skuld (futuro) - tecem o destino de todos, mesmo dos deuses, mostrando que nem Odin está acima do destino.</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Valhalla não era o único pós-vida</h3>
+                    <p>Embora o Valhalla seja o mais famoso, existiam vários destinos após a morte: metade dos guerreiros mortos iam para o salão de Freya, Fólkvangr; os afogados iam para Rán; e a maioria das pessoas comuns ia para Helheim.</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Os Filhos Monstruosos de Loki</h3>
+                    <p>Loki foi pai de três monstros com a giganta Angrboda: Fenrir (o lobo), Jörmungandr (a serpente de Midgard) e Hel (governante dos mortos). Ele também deu à luz o cavalo de oito patas de Odin, Sleipnir, após se transformar em uma égua.</p>
+                </div>
+                <div class="fact-card">
+                    <h3>O Hidromel da Poesia</h3>
+                    <p>O hidromel da poesia foi criado com o sangue do sábio Kvasir. Quem o bebe ganha o dom da poesia e sabedoria. Odin roubou esta bebida mágica após se transformar em serpente e seduziu a filha do gigante que a guardava.</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>O Navio Naglfar</h3>
+                    <p>Durante o Ragnarök, um navio feito inteiramente de unhas de cadáveres chamado Naglfar navegará carregando um exército de gigantes. Por isso, os nórdicos cortavam as unhas dos mortos para retardar sua construção.</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>A Mitologia na Cultura Pop</h3>
+                    <p>A mitologia nórdica inspira fortemente a cultura moderna, desde os dias da semana às obras de Tolkien, Marvel Comics (Thor), jogos como God of War e músicas de heavy metal, mostrando seu duradouro apelo.</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Elfos e Oferendas</h3>
+                    <p>Os antigos nórdicos acreditavam que os elfos influenciavam a fertilidade e boa sorte. Davam "oferendas aos elfos" (álfablót) em pedras especiais chamadas "pedras dos elfos" para ganhar seus favores.</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Muspelheim e a Ciência Moderna</h3>
+                    <p>O conceito nórdico da criação do mundo começando com fogo e gelo converge curiosamente com teorias modernas sobre a origem do universo, onde calor intenso e expansão seguida por resfriamento foram fundamentais.</p>
+                </div>
+                
+                <div class="fact-card">
+                    <h3>Os Vikings e Suas Espiritualidades</h3>
+                    <p>Embora venerassem os deuses comuns, cada viking poderia ter um deus protetor pessoal. Muitos guerreiros escolhiam Odin ou Thor, enquanto agricultores frequentemente preferiam Freyr e Freya.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section id="quiz" class="section fade-in delay-2">
+            <h2>Teste seus Conhecimentos</h2>
+            <p>Quanto você aprendeu sobre a mitologia nórdica? Teste seus conhecimentos com este quiz interativo!</p>
+            
+            <div class="quiz-container" id="quizContainer">
+                <div id="questionContainer">
+                    <div class="quiz-question" id="question"></div>
+                    <div class="quiz-options" id="options"></div>
+                    <button class="quiz-btn" id="nextBtn">Próxima Pergunta</button>
+                </div>
+                <div id="resultsContainer" style="display: none;">
+                    <h3>Resultados</h3>
+                    <p id="score"></p>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                    <p id="feedback"></p>
+                    <button class="quiz-btn" id="restartBtn">Reiniciar Quiz</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modais -->
+    <div class="modal" id="godModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <div class="modal-header">
+                <img id="modalGodIcon" src="" alt="">
+                <div class="modal-title">
+                    <h2 id="modalGodName"></h2>
+                    <div class="modal-subtitle" id="modalGodTitle"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalGodImage" src="" alt="">
+                </div>
+                <div class="modal-text" id="modalGodDescription"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão de tema escuro -->
+    <button class="dark-mode-toggle" id="darkModeToggle">☀</button>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Navegação</h3>
+                <ul class="footer-links">
+                    <li><a href="#introducao">Introdução</a></li>
+                    <li><a href="#historia">História</a></li>
+                    <li><a href="#deuses">Deuses</a></li>
+                    <li><a href="#criaturas">Criaturas</a></li>
+                    <li><a href="#mundos">Nove Mundos</a></li>
+                    <li><a href="#curiosidades">Curiosidades</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Recursos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Livros Recomendados</a></li>
+                    <li><a href="#">Filmes &amp; Séries</a></li>
+                    <li><a href="#">Fontes Históricas</a></li>
+                    <li><a href="#">Glossário</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Sobre o Site</h3>
+                <p>Este site foi criado como um recurso educacional para ensinar sobre a rica mitologia nórdica e sua influência cultural. Todos os conteúdos foram desenvolvidos com base em fontes históricas e acadêmicas.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mitologia Nórdica - Todos os direitos reservados</p>
+        </div>
+    </footer>
+<script>
+
+// Dados para os deuses
+        const godsData = {
+            odin: {
+                name: 'Odin',
+                title: 'Pai de Todos, Deus da Sabedoria e Guerra',
+                icon: 'https://imgs.search.brave.com/8fHEX6_GnlX1l0qx6MVhbNDLUkgkdMgy_S_HeNR30hs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwLmdhbWVyYW50/aW1hZ2VzLmNvbS93/b3JkcHJlc3Mvd3At/Y29udGVudC91cGxv/YWRzLzIwMjIvMTEv/R29kLW9mLVdhci1S/YWduYXJvay1PZGlu/LmpwZw',
+                image: 'https://imgs.search.brave.com/dHRFa79RgXRHNKVTYXA4_NUX-eVEA9bhO2be0h0YmZM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcmV2/aWV3LnJlZGQuaXQv/d2hvLXdvdWxkLXdp/bi1pbi1hLWZpZ2h0/LXYwLWlheGFyMGx3/aWF3ZTEucG5nP3dp/ZHRoPTY0MCZjcm9w/PXNtYXJ0JmF1dG89/d2VicCZzPThjMzVl/NDZhYjQzYWViZTA1/MGRiODZkYjUzY2Rj/MzUzMGIzMDNmMjE',
+                description: `
+                    <h3>O Senhor de Asgard</h3>
+                    <p>Odin, também conhecido como Wotan, Woden ou Allfather (Pai de Todos), é o deus supremo na mitologia nórdica. Filho de Bor e Bestla, ele governa em Asgard junto com seus irmãos Vili e Vé, com quem criou o mundo a partir do corpo do gigante primordial Ymir.</p>
+                    
+                    <h3>Sabedoria e Magia</h3>
+                    <p>Em sua busca incessante por conhecimento, Odin sacrificou um de seus olhos para beber da fonte da sabedoria de Mímir. Ele também se enforcou na árvore Yggdrasil por nove dias e nove noites, ferindo-se com sua própria lança, Gungnir, para descobrir as runas e sua magia. Este sacrifício é um dos muitos exemplos do quanto Odin estava disposto a sofrer pela sabedoria.</p>
+                    
+                    <h3>Atributos e Companheiros</h3>
+                    <p>Odin possui dois corvos, Huginn (pensamento) e Muninn (memória), que voam pelo mundo todos os dias e retornam para contar a Odin tudo o que viram. Ele também tem dois lobos, Geri e Freki, e cavalga Sleipnir, um cavalo de oito patas nascido de Loki.</p>
+                    
+                    <h3>O Valhalla</h3>
+                    <p>Como deus da guerra, Odin preside o Valhalla, o salão onde metade dos guerreiros mortos em batalha são levados pelas Valquírias. Lá, estes guerreiros escolhidos (Einherjar) festejam e lutam diariamente, preparando-se para o Ragnarök, quando ajudarão Odin na batalha final.</p>
+                    
+                    <h3>Curiosidades</h3>
+                    <ul class="facts-list">
+                        <li>Odin é conhecido por muitos nomes diferentes (mais de 200), refletindo seus diversos aspectos e funções.</li>
+                        <li>Ele frequentemente viajava pelo mundo disfarçado como um velho de um olho só, usando um chapéu de aba larga e uma capa azul.</li>
+                        <li>A quarta-feira (Wednesday em inglês) é nomeada em sua homenagem (Woden's day).</li>
+                        <li>Durante o Ragnarök, Odin será devorado pelo lobo Fenrir, mas será vingado por seu filho Vidar.</li>
+                    </ul>
+                `
+            },
+            thor: {
+                name: 'Thor',
+                title: 'Deus do Trovão e Protetor',
+                icon: 'https://imgs.search.brave.com/JfgzTmRsttvFBbdSTnaLbcRYubJm_oe3CWAYItwU3ok/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMxLmNicmltYWdl/cy5jb20vd29yZHBy/ZXNzL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIyLzA1L0dvZC1v/Zi1XYXItVGhvci5q/cGc',
+                image: 'https://imgs.search.brave.com/7qX4jbqNitHYaGwRZHz-rgcHputB53UlBlkxM3GJuHE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtd2l4bXAtZWQz/MGE4NmI4YzRjYTg4/Nzc3MzU5NGMyLndp/eG1wLmNvbS9mL2Zi/NmEwMGI0LTljZGMt/NDAxZC05YTYxLTQx/ZmRiZTlkMDljZS9k/Zm4zMGJrLTkxOWMz/MzlkLWFlMmMtNDY3/NC05MDI3LTQxYTg0/ZmI5MDczMS5wbmcv/djEvZmlsbC93XzEy/ODAsaF8xNjczL3Ro/b3JfX2dvZF9vZl93/YXJfX19yZW5kZXJf/X2J5X3llc3Npbmdf/ZGZuMzBiay1mdWxs/dmlldy5wbmc_dG9r/ZW49ZXlKMGVYQWlP/aUpLVjFRaUxDSmhi/R2NpT2lKSVV6STFO/aUo5LmV5SnpkV0lp/T2lKMWNtNDZZWEJ3/T2pkbE1HUXhPRGc1/T0RJeU5qUXpOek5o/TldZd1pEUXhOV1Zo/TUdReU5tVXdJaXdp/YVhOeklqb2lkWEp1/T21Gd2NEbzNaVEJr/TVRnNE9UZ3lNalkw/TXpjellUVm1NR1Ew/TVRWbFlUQmtNalps/TUNJc0ltOWlhaUk2/VzF0N0ltaGxhV2Rv/ZENJNklqdzlNVFkz/TXlJc0luQmhkR2dp/T2lKY0wyWmNMMlpp/Tm1Fd01HSTBMVGxq/WkdNdE5EQXhaQzA1/WVRZeExUUXhabVJp/WlRsa01EbGpaVnd2/WkdadU16QmlheTA1/TVRsak16TTVaQzFo/WlRKakxUUTJOelF0/T1RBeU55MDBNV0U0/TkdaaU9UQTNNekV1/Y0c1bklpd2lkMmxr/ZEdnaU9pSThQVEV5/T0RBaWZWMWRMQ0po/ZFdRaU9sc2lkWEp1/T25ObGNuWnBZMlU2/YVcxaFoyVXViM0Js/Y21GMGFXOXVjeUpk/ZlEuZ2RBOHpTZ0JH/blZ4eXotYWJpYUV1/bVY0bVhHbjhYclB5/WUtGMnVpSjNyNA',
+                description: `
+                    <h3>O Filho Poderoso de Odin</h3>
+                    <p>Thor é filho de Odin e da deusa da Terra Jord (ou Fjörgyn). Conhecido por sua imensa força, Thor é o protetor dos deuses e humanos contra as forças do caos, principalmente os jötnar (gigantes).</p>
+                    
+                    <h3>Mjölnir, o Martelo</h3>
+                    <p>A arma característica de Thor é Mjölnir, um martelo mágico feito pelos anões, que sempre retorna à sua mão após ser lançado. Thor também possui um cinto de força, Megingjörd, que duplica seu poder já imenso, e luvas de ferro para empunhar o martelo, que tem o cabo curto devido a uma travessura de Loki durante sua forja.</p>
+                    
+                    <h3>Defensor Incansável</h3>
+                    <p>Diferente de Odin, que é complexo e às vezes enganador, Thor é direto e confiável. Ele continuamente viaja para Jotunheim para lutar contra gigantes que ameaçam Asgard e Midgard. Suas histórias frequentemente envolvem aventuras para proteger os reinos dos deuses e dos humanos.</p>
+                    
+                    <h3>Curiosidades</h3>
+                    <ul class="facts-list">
+                        <li>Thor viaja em uma carruagem puxada por dois bodes mágicos, Tanngrisnir e Tanngnjóstr, que podem ser mortos e comidos e depois ressuscitados se seus ossos forem preservados.</li>
+                        <li>O trovão era explicado como o som da carruagem de Thor atravessando o céu.</li>
+                        <li>Thor era especialmente venerado pelos camponeses e pela classe comum, enquanto Odin era mais associado à nobreza e aos guerreiros.</li>
+                        <li>A quinta-feira (Thursday em inglês) é nomeada em sua homenagem (Thor's day).</li>
+                        <li>No Ragnarök, Thor matará a Serpente de Midgard, Jörmungandr, mas morrerá logo depois devido ao veneno da serpente.</li>
+                    </ul>
+                `
+            },
+            freya: {
+                name: 'Freya',
+                title: 'Deusa do Amor, Beleza e Guerra',
+                icon: 'https://imgs.search.brave.com/ful-055Z3FisY4BT7sa7IYT5wWMVMc0QieXFluvNM0Q/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMxLnNyY2RuLmNv/bS93b3JkcHJlc3Mv/d3AtY29udGVudC91/cGxvYWRzLzIwMjAv/MDcvZnJleWEtZ29k/LW9mLXdhci0uanBn',
+                image: 'src/freyaa.png',
+                description: `
+                    <h3>A Mais Bela das Deusas</h3>
+                    <p>Freya é uma deusa Vanir, filha de Njörd e irmã de Freyr. Após a guerra entre os Æsir e os Vanir, ela veio para Asgard como refém e se tornou a mais proeminente das deusas. Seu nome significa "Senhora" e ela é associada ao amor, beleza, fertilidade, guerra e morte.</p>
+                    
+                    <h3>Feiticeira e Guerreira</h3>
+                    <p>Freya é mestra da magia Seiðr, uma forma de feitiçaria que permite ver e influenciar o futuro. Foi ela quem ensinou esta arte a Odin. Além disso, como deusa da guerra, Freya tem direito à metade dos guerreiros mortos em batalha, que vão para seu salão Fólkvangr, enquanto a outra metade vai para o Valhalla de Odin.</p>
+                    
+                    <h3>Ornamentos e Associações</h3>
+                    <p>Freya possui o magnífico colar Brísingamen, obtido dos anões, e uma capa de penas de falcão que permite a transformação em um pássaro. Ela viaja em uma carruagem puxada por dois gatos gigantes e às vezes é acompanhada por um javali dourado chamado Hildisvíni.</p>
+                    
+                    <h3>Curiosidades</h3>
+                    <ul class="facts-list">
+                        <li>Freya chorava lágrimas de ouro vermelho (âmbar) quando seu marido Óðr estava ausente em suas longas viagens.</li>
+                        <li>Muitos especialistas acreditam que Freya e Frigg (esposa de Odin) podem ter sido originalmente a mesma deusa, que posteriormente se diferenciou em duas figuras distintas.</li>
+                        <li>A sexta-feira (Friday em inglês) pode estar relacionada tanto a Freya quanto a Frigg (Frigg's day ou Freya's day).</li>
+                        <li>Freya era frequentemente desejada pelos gigantes, e em várias histórias, os deuses tiveram que protegê-la ou resgatá-la de tentativas de rapto.</li>
+                    </ul>
+                `
+            },
+            loki: {
+                name: 'Loki',
+                title: 'Deus da Trapaça e do Caos',
+                icon: 'https://imgs.search.brave.com/kgKDsky39u_NzfmFLf7_DbD9rpj67KjqZRlHZxo1HV4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA2LzQzLzcwLzkx/LzM2MF9GXzY0Mzcw/OTEwOF9ldmN4YnJM/Y0ZLM0ZQUTlWZWVL/T1d2TlRxekF5MHcw/Qy5qcGc',
+                image: 'https://imgs.search.brave.com/hfZUllPOwTjjMdDUyywiL7zcoBeEYoFrPd3U49cxB8w/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbmdm/cmUuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9sb2tpLTM0LTcw/OXgxMDI0LnBuZw',
+                description: `
+                    <h3>O Enganador Divino</h3>
+                    <p>Loki é uma das figuras mais complexas e controversas da mitologia nórdica. Filho de gigantes, Loki tornou-se um companheiro de Odin e foi aceito entre os Æsir após fazer um pacto de irmandade de sangue com Odin, embora não seja tecnicamente um deus. Sua natureza ambígua o coloca simultaneamente como aliado e antagonista dos deuses.</p>
+                    
+                    <h3>O Agente do Caos</h3>
+                    <p>Loki é frequentemente a fonte de problemas para os deuses, mas também ajuda a resolvê-los. Sua natureza enganadora e seu talento para travessuras o tornam imprevisível. Ele geralmente se mete em problemas devido à sua língua afiada e seu comportamento impulsivo, mas sua astúcia muitas vezes o tira dessas situações.</p>
+                    
+                    <h3>Metamorfo e Pai de Monstros</h3>
+                    <p>Loki tem o poder de mudar de forma. Com a giganta Angrboda, ele é pai de três monstros que desempenharão papéis cruciais no Ragnarök: o lobo Fenrir, a serpente de Midgard Jörmungandr e Hel, governante do mundo dos mortos. De forma peculiar, Loki também se transformou em uma égua para distrair o cavalo Svaðilfari, e dessa união nasceu Sleipnir, o cavalo de oito patas de Odin.</p>
+                    
+                    <h3>A Punição e o Ragnarök</h3>
+                    <p>Após orquestrar a morte de Baldr, o querido filho de Odin, Loki é punido pelos deuses: ele é amarrado com as entranhas de seu próprio filho e uma serpente é posicionada acima dele, gotejando veneno em seu rosto. Sua esposa leal, Sigyn, usa uma tigela para coletar o veneno, mas quando ela precisa esvaziá-la, as gotas que caem no rosto de Loki o fazem se contorcer de dor, causando terremotos. No Ragnarök, Loki se libertará e liderará os gigantes e monstros contra os deuses.</p>
+                    
+                    <h3>Curiosidades</h3>
+                    <ul class="facts-list">
+                        <li>Loki é muitas vezes considerado um "trickster", uma figura mitológica que quebra regras e convenções sociais, comum em várias mitologias ao redor do mundo.</li>
+                        <li>Apesar de ser frequentemente retratado como vilão, muitas das ações de Loki beneficiaram os deuses, como quando ajudou Thor a recuperar seu martelo roubado.</li>
+                        <li>Ele é responsável por muitos dos tesouros dos deuses, geralmente primeiro causando problemas e depois sendo forçado a encontrar soluções brilhantes.</li>
+                        <li>Na cultura popular moderna, Loki tornou-se um dos personagens mais reconhecíveis da mitologia nórdica.</li>
+                    </ul>
+                `
+            },
+            heimdall: {
+                name: 'Heimdall',
+                title: 'Guardião de Bifröst',
+                icon: 'https://imgs.search.brave.com/BERfhH3cqwwYezspTvX5CeU5diR8EGIMIyLUh_FZMSI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzM1L2Zj/L2ZlLzM1ZmNmZWNh/ZmJlMTI3MzQ5OTI3/ZGU1ZjRhNDAyN2Rk/LmpwZw',
+                image: 'https://imgs.search.brave.com/klh0q_JWw6SL7XtLEEZyzxRt23PIgI1YSuMUZDuGw1M/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L2Fu/aW1ldmVyc28vaW1h/Z2VzL2IvYjEvSGVp/bWRhbGwucG5nL3Jl/dmlzaW9uL2xhdGVz/dC9zY2FsZS10by13/aWR0aC1kb3duLzMw/OD9jYj0yMDIzMDIw/MjE5MTM0OSZwYXRo/LXByZWZpeD1wdC1i/cg',
+                description: `
+                    <h3>O Vigilante de Asgard</h3>
+                    <p>Heimdall é o guardião da ponte Bifröst, o arco-íris que conecta Asgard e Midgard. Filho de nove mães (possivelmente as nove ondas do mar), ele é descrito como "o deus branco" e é conhecido por sua visão e audição extraordinárias.</p>
+                    
+                    <h3>Sentidos Sobrenaturais</h3>
+                    <p>Heimdall pode ver a cem léguas de distância, tanto de dia quanto de noite. Ele pode ouvir a grama crescendo na terra e a lã crescendo nas ovelhas. Ele raramente dorme e está sempre vigilante, protegendo Asgard contra invasores, especialmente os gigantes.</p>
+                    
+                    <h3>Gjallarhorn</h3>
+                    <p>Heimdall possui o chifre Gjallarhorn, cujo som pode ser ouvido em todos os mundos. No Ragnarök, ele soará o Gjallarhorn para alertar os deuses da batalha final que se aproxima. Segundo as profecias, Heimdall e Loki se matarão mutuamente durante o conflito.</p>
+                    
+                    <h3>Criador da Sociedade Humana</h3>
+                    <p>Em um mito fascinante, Heimdall, sob o nome de Ríg, visitou três casas diferentes e dormiu três noites com três casais diferentes, gerando filhos que se tornariam os ancestrais das três classes sociais nórdicas: Thrall (escravos), Karl (camponeses livres) e Jarl (nobres).</p>
+                    
+                    <h3>Curiosidades</h3>
+                    <ul class="facts-list">
+                        <li>A espada de Heimdall é chamada "cabeça" (höfuð), o que criou uma intrigante metáfora poética na antiga poesia nórdica.</li>
+                        <li>Ele é descrito como tendo dentes de ouro, o que lhe rendeu o apelido de "Gulltanni" (Dentes Dourados).</li>
+                        <li>Heimdall pode ser o antagonista natural de Loki, já que eles representam opostos: vigilância vs. engano, ordem vs. caos.</li>
+                        <li>Alguns estudiosos sugerem que o colar Brísingamen de Freya ficava sob a guarda de Heimdall.</li>
+                    </ul>
+                `
+            },
+            frigg: {
+                name: 'Frigg',
+                title: 'Deusa do Casamento e Maternidade',
+                icon: 'https://imgs.search.brave.com/xveQuafgn_BG9mWTCOql8XhWgKkvUiHP68jwVvIiDR8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMud2lraWEubm9j/b29raWUubmV0L3Jw/Zy1yaXNlLW9mLXRo/ZS10aXRhbnMvaW1h/Z2VzL2MvYzcvRnJp/Z2cuanBnL3Jldmlz/aW9uL2xhdGVzdC9z/Y2FsZS10by13aWR0/aC1kb3duLzQwMD9j/Yj0yMDE5MTEyNTE4/Mzc1MCZwYXRoLXBy/ZWZpeD1wdC1icg',
+                image: 'https://imgs.search.brave.com/kCG7SXhK11PRZxz4cNVCc1QtP7ZEQMnwtBiadfrshRk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtd2l4bXAtZWQz/MGE4NmI4YzRjYTg4/Nzc3MzU5NGMyLndp/eG1wLmNvbS9mLzEw/NTkyN2YzLWFmZTct/NDQ3MC1hZjljLWRh/YTlhNWY2MWJjMy9k/ajR4ZWxtLWNlZDBj/YzE3LWFlODctNDNk/Zi1iN2E1LTg0MmJl/N2Y5Njg4Zi5wbmc_/dG9rZW49ZXlKMGVY/QWlPaUpLVjFRaUxD/SmhiR2NpT2lKSVV6/STFOaUo5LmV5Snpk/V0lpT2lKMWNtNDZZ/WEJ3T2pkbE1HUXhP/RGc1T0RJeU5qUXpO/ek5oTldZd1pEUXhO/V1ZoTUdReU5tVXdJ/aXdpYVhOeklqb2lk/WEp1T21Gd2NEbzNa/VEJrTVRnNE9UZ3lN/alkwTXpjellUVm1N/R1EwTVRWbFlUQmtN/alpsTUNJc0ltOWlh/aUk2VzF0N0luQmhk/R2dpT2lKY0wyWmNM/ekV3TlRreU4yWXpM/V0ZtWlRjdE5EUTNN/QzFoWmpsakxXUmhZ/VGxoTldZMk1XSmpN/MXd2WkdvMGVHVnNi/UzFqWldRd1kyTXhO/eTFoWlRnM0xUUXpa/R1l0WWpkaE5TMDRO/REppWlRkbU9UWTRP/R1l1Y0c1bkluMWRY/U3dpWVhWa0lqcGJJ/blZ5YmpwelpYSjJh/V05sT21acGJHVXVa/RzkzYm14dllXUWlY/WDAucHJ6cy1qZHRF/cGRXeEJSOHdYeVRs/REVLSGdEeXBCYTVy/OWYyeTNuMDdyUQ',
+                description: `
+                    <h3>A Rainha de Asgard</h3>
+                    <p>Frigg é a esposa de Odin e a rainha dos deuses Æsir. Deusa da maternidade, do casamento e da sabedoria doméstica, ela é uma poderosa figura materna que protege as famílias e os lares.</p>
+                    
+                    <h3>Profetisa e Conhecedora do Destino</h3>
+                    <p>Frigg possui o dom da profecia e conhece o destino de todos os seres, embora raramente revele esse conhecimento. Em um dos mitos mais conhecidos, ela tenta proteger seu amado filho Baldr após prever sua morte, pedindo a todas as coisas do mundo que jurem não machucá-lo. Apenas o visco é esquecido, o que eventualmente leva à morte de Baldr através de um plano de Loki.</p>
+                    
+                    <h3>Senhora de Fensalir</h3>
+                    <p>Frigg habita em Fensalir ("Salões do Pântano"), de onde supervisiona assuntos domésticos e familiares. Ela é frequentemente retratada fiando nuvens com sua roca, simbolizando seu papel na tecelagem do destino.</p>
+                    
+                    <h3>Curiosidades</h3>
+                    <ul class="facts-list">
+                        <li>Frigg tinha várias servas que auxiliavam nas tarefas divinas, incluindo Fulla, sua confidente que carregava seu estojo de joias.</li>
+                        <li>A constelação conhecida como "Roca de Frigg" (o cinturão de Órion) foi nomeada em sua homenagem.</li>
+                        <li>Alguns estudiosos acreditam que Frigg e Freya podem ter sido originalmente a mesma deusa, depois divididas em duas figuras distintas.</li>
+                        <li>A sexta-feira (Friday em inglês) é potencialmente nomeada em sua homenagem (Frigg's day).</li>
+                        <li>Frigg é a mãe de Baldr, Hödr e possivelmente Hermod, embora as genealogias sejam inconsistentes nas fontes originais.</li>
+                    </ul>
+                `
+            },
+            tyr: {
+                name: 'Tyr',
+                title: 'Deus da Justiça e da Lei',
+                icon: 'https://imgs.search.brave.com/W0sosMMxctnywf4ZIFJ9pHMEnd6GrkkFZ9uezS5kTjY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzdlL2Y4/L2Q2LzdlZjhkNmRi/MzY2ODFlNDdjYzY4/OGYxMWMyZDczZjk1/LmpwZw',
+                image: 'src/tyr.png',
+                description: `
+                    <h3>O Deus da Justiça</h3>
+                    <p>Tyr é o deus nórdico da justiça, da lei, das assembleias e da glória na batalha. Embora nas fontes tardias ele seja retratado como filho de Odin, algumas evidências sugerem que ele pode ter sido anteriormente o deus principal do panteão germânico, antes da ascensão do culto de Odin.</p>
+                    
+                    <h3>O Sacrifício Heroico</h3>
+                    <p>Tyr é mais conhecido por seu grande sacrifício. Quando os deuses decidiram amarrar o perigoso lobo Fenrir, o lobo concordou em ser amarrado apenas se um dos deuses colocasse a mão em sua boca como garantia de que seria libertado se não conseguisse se soltar. Apenas Tyr teve coragem de fazê-lo, e quando os deuses traíram Fenrir e o mantiveram acorrentado, o lobo arrancou a mão direita de Tyr.</p>
+                    
+                    <h3>Guardião dos Juramentos</h3>
+                    <p>Como deus da justiça e das assembleias legais (things), Tyr era invocado para supervisionar juramentos e contratos. Sua disposição em sacrificar sua própria mão pelo bem comum simboliza o compromisso com a justiça acima do interesse próprio.</p>
+                    
+                    <h3>Curiosidades</h3>
+                    <ul class="facts-list">
+                        <li>A terça-feira (Tuesday em inglês) é nomeada em sua homenagem, derivando de "Tyr's day" (em nórdico antigo: Týsdagr).</li>
+                        <li>A runa Tiwaz (↑) é associada a Tyr e representa justiça, honra e liderança.</li>
+                        <li>Tyr é frequentemente representado como um guerreiro de uma só mão, portando uma espada com a mão esquerda.</li>
+                        <li>No Ragnarök, Tyr lutará contra o cão infernal Garm e ambos se matarão mutuamente.</li>
+                        <li>Seu equivalente na mitologia romana é Marte, não apenas como deus da guerra, mas também como guardião da lei e da justiça.</li>
+                    </ul>
+                `
+            },
+            baldr: {
+                name: 'Baldr',
+                title: 'Deus da Luz e Pureza',
+                icon: 'https://imgs.search.brave.com/MifxiXrt_lDleF4Tifd9b77NuAMbE7Wr1w6BFtipYQE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwLmdhbWVyYW50/aW1hZ2VzLmNvbS93/b3JkcHJlc3Mvd3At/Y29udGVudC91cGxv/YWRzLzIwMjIvMDMv/YmFsZHVyLmpwZw',
+                image: 'src/baldur.png',
+                description: `
+                    <h3>O Deus Amado</h3>
+                    <p>Baldr, filho de Odin e Frigg, é descrito como o mais belo e amado dos deuses, radiante como o sol. Conhecido por sua bondade, sabedoria e justiça, ele simboliza a luz, a pureza e a inocência no panteão nórdico.</p>
+                    
+                    <h3>A Morte Trágica</h3>
+                    <p>O mito mais importante sobre Baldr envolve sua morte. Após ter sonhos premonitórios sobre sua própria morte, sua mãe Frigg extraiu promessas de todas as coisas do mundo para não machucarem seu filho, esquecendo apenas do visco, que parecia inofensivo. Loki descobriu esta vulnerabilidade e enganou o irmão cego de Baldr, Höðr, fazendo-o atirar uma flecha feita de visco em Baldr, matando-o instantaneamente.</p>
+                    
+                    <h3>A Tentativa de Resgate</h3>
+                    <p>Após a morte de Baldr, os deuses ficaram devastados. Hermod, outro filho de Odin, cavalgou até Helheim para tentar resgatar seu irmão. A governante do mundo dos mortos, Hel, concordou em liberar Baldr se todas as coisas no mundo chorassem por ele. Todos choraram, exceto uma giganta chamada Þökk (que muitos acreditam ser Loki disfarçado), o que significa que Baldr teve que permanecer em Helheim até o Ragnarök.</p>
+                    
+                    <h3>O Retorno Após o Ragnarök</h3>
+                    <p>De acordo com as profecias, após o Ragnarök, quando um novo mundo ressurgir das águas, Baldr retornará dos mortos para governar em um reino de paz e harmonia, simbolizando o renascimento da luz após a destruição.</p>
+                    
+                    <h3>Curiosidades</h3>
+                    <ul class="facts-list">
+                        <li>O nome de Baldr pode estar relacionado a palavras que significam "senhor" ou "príncipe".</li>
+                        <li>Sua mansão em Asgard era chamada Breidablik ("amplo esplendor"), descrita como o lugar mais belo, onde nada impuro podia entrar.</li>
+                        <li>A morte de Baldr marca o início da cadeia de eventos que levará ao Ragnarök.</li>
+                        <li>Alguns estudiosos interpretam o mito de Baldr como tendo influências cristãs, vendo paralelos entre Baldr e Cristo.</li>
+                        <li>Baldr era casado com Nanna, que morreu de tristeza durante seu funeral e foi cremada junto com ele em seu navio funerário.</li>
+                    </ul>
+                `
+            },
+            freyr: {
+                name: 'Freyr',
+                title: 'Deus da Fertilidade e Prosperidade',
+                icon: 'https://imgs.search.brave.com/uq8xHbghVKefG6E-rtppqziZ_R0P6fGVbwxfY0SD6Ow/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzQ4LzIx/LzU1LzQ4MjE1NTRh/NTNhOWI1Mzg3ZDAy/ODljNDZjODU1NDVj/LmpwZw',
+                image: 'src/feir.png',
+                description: `
+                    <h3>O Senhor da Abundância</h3>
+                    <p>Freyr, um dos Vanir e filho de Njörd, é o deus da fertilidade, chuva, sol e colheitas abundantes. Associado à paz e prosperidade, ele é amado por mortais e deuses, sendo um símbolo de fartura e alegria no panteão nórdico.</p>
+                    
+                    <h3>O Amor por Gerðr</h3>
+                    <p>Um dos mitos mais conhecidos de Freyr é seu amor por Gerðr, uma bela jotun (giganta). Apaixonado, Freyr entregou sua espada mágica, que lutava sozinha, ao seu servo Skírnir para convencer Gerðr a se casar com ele. Apesar da relutância inicial, Gerðr aceitou, e o casamento simboliza a união entre a fertilidade da terra e o céu.</p>
+                    
+                    <h3>A Perda da Espada</h3>
+                    <p>A entrega de sua espada mágica teve consequências trágicas. No Ragnarök, Freyr enfrentará o gigante de fogo Surtr sem sua arma principal, o que o levará à derrota. Esse sacrifício por amor destaca a dualidade entre paixão e dever em sua história.</p>
+                    
+                    <h3>Curiosidades</h3>
+                    <ul class="facts-list">
+                        <li>Freyr possui um javali dourado chamado Gullinbursti, que brilha no escuro e corre mais rápido que qualquer cavalo.</li>
+                        <li>Seu navio, Skíðblaðnir, é mágico, podendo ser dobrado e guardado no bolso, mas grande o suficiente para carregar todos os deuses.</li>
+                        <li>Freyr era adorado em rituais de fertilidade, especialmente na Suécia, onde era um dos deuses mais venerados.</li>
+                        <li>Como um Vanir, Freyr representa a harmonia com a natureza, em contraste com os Æsir, mais ligados à guerra.</li>
+                        <li>Seu nome significa "senhor" em nórdico antigo, refletindo sua posição de liderança.</li>
+                    </ul>
+                `
+            },
+            njord: {
+                name: 'Njörd',
+                title: 'Deus do Mar e dos Ventos',
+                icon: 'https://imgs.search.brave.com/j6keD6evdwgnyC-lsnis3goC0oDEeGFx_vjd6wBvA7s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9taXRv/bG9naWEtbm9yZGlj/YS5uZXQvd3AtY29u/dGVudC91cGxvYWRz/LzIwMTgvMDIvZGV1/cy1Oam9yZC1uYS1t/aXRvbG9naWEtbm9y/ZGljYS5qcGc',
+                image: 'https://cdn.pixabay.com/photo/2017/06/26/16/46/statue-2444341_1280.png',
+                description: `
+                    <h3>O Guardião dos Mares</h3>
+                    <p>Njörd, um dos Vanir, é o deus associado ao mar, aos ventos favoráveis, à pesca e à riqueza. Ele é conhecido por sua capacidade de acalmar tempestades e garantir viagens seguras para marinheiros, sendo um dos deuses mais reverenciados por comunidades costeiras.</p>
+                    
+                    <h3>A Troca de Reféns</h3>
+                    <p>Após a guerra entre os Æsir e os Vanir, Njörd foi enviado aos Æsir como parte de um acordo de paz, junto com seus filhos, Freyr e Freyja. Em Asgard, ele se adaptou, mas sentia saudades do mar e dos sons das ondas, contrastando com a vida montanhosa dos Æsir.</p>
+                    
+                    <h3>O Casamento com Skaði</h3>
+                    <p>Njörd se casou com a jotun Skaði, mas o casamento foi marcado por desentendimentos. Skaði preferia as montanhas, enquanto Njörd amava o l  inhabit the coasts and the seas. Eles tentaram viver juntos, alternando entre a casa de Njörd no mar e a casa de Skaði nas montanhas, mas acabaram se separando devido às diferenças.</p>
+                    
+                    <h3>Curiosidades</h3>
+                    <ul class="facts-list">
+                        <li>Njörd é pai de Freyr e Freyja, os deuses da fertilidade, o que reforça sua conexão com a abundância.</li>
+                        <li>Seu lar em Asgard é chamado Nóatún, que significa "lugar dos barcos".</li>
+                        <li>Ele era especialmente venerado em áreas costeiras da Escandinávia, onde oferendas eram feitas para garantir boas pescarias.</li>
+                        <li>Apesar de ser um Vanir, Njörd foi bem integrado ao panteão Æsir após a guerra.</li>
+                        <li>Seu nome está relacionado à palavra nórdica para "norte" ou "força".</li>
+                    </ul>
+                `
+            },
+            idunn: {
+                name: 'Idunn',
+                title: 'Deusa da Juventude e Renovação',
+                icon: 'https://imgs.search.brave.com/4Cgi6u7usLNnQwANGH_-hnVYufrMhWQBV_53m-vhyx8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oaWNv/b3AuYi1jZG4ubmV0/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIz/LzAzL0lkdW5uLWdv/ZGRlc3MuanBn',
+                image: 'https://images.twinkl.co.uk/tw1n/image/private/s--s-ZbEEK5--/c_fill,q_auto:eco,w_600/v1/create/library/Sif-Goddess-of-Earth-Homes-Crops---History-Mythical-Norse-Nordic-Viking-Gods-Topics-KS2.png',
+                description: `
+                    <h3>A Guardiã da Juventude</h3>
+                    <p>Idunn é a deusa da juventude e da renovação, conhecida por cuidar das maçãs douradas que garantem a eterna juventude dos deuses Æsir. Sua presença é essencial para a imortalidade e vitalidade do panteão nórdico.</p>
+                    
+                    <h3>O Rapto de Idunn</h3>
+                    <p>Em um mito famoso, Idunn foi enganada por Loki e capturada pelo gigante Þjazi. Sem suas maçãs, os deuses começaram a envelhecer rapidamente. Loki, sob pressão, resgatou Idunn, transformando-a em uma noz para escapar. Þjazi, perseguindo-os, foi morto pelos deuses, e Idunn restaurou a juventude dos Æsir.</p>
+                    
+                    <h3>A Importância das Maçãs</h3>
+                    <p>As maçãs de Idunn não apenas previnem o envelhecimento, mas simbolizam a renovação e a continuidade da vida divina. Sua perda teria consequências catastróficas para os deuses, destacando sua importância no panteão.</p>
+                    
+                    <h3>Curiosidades</h3>
+                    <ul class="facts-list">
+                        <li>Idunn é casada com Bragi, o deus da poesia, sugerindo uma conexão entre juventude e inspiração criativa.</li>
+                        <li>Seu nome significa "aquela que renova" ou "sempre jovem" em nórdico antigo.</li>
+                        <li>As maçãs de Idunn têm paralelos em outros mitos, como as maçãs das Hespérides na mitologia grega.</li>
+                        <li>Ela é frequentemente retratada com uma cesta ou caixa onde guarda suas maçãs mágicas.</li>
+                        <li>Apesar de seu papel crucial, Idunn tem poucos mitos próprios, sendo mais uma figura de suporte no panteão.</li>
+                    </ul>
+                `
+            },
+            bragi: {
+                name: 'Bragi',
+                title: 'Deus da Poesia e Eloquência',
+                icon: 'https://imgs.search.brave.com/4Do_7lqid7s5igVCsMnv0BfRFB-4u7ohkp972UlTSp4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzcxZ2dBdForUHhM/LmpwZw',
+                image: 'src/bragi.png',
+                description: `
+                    <h3>O Mestre das Palavras</h3>
+                    <p>Bragi é o deus da poesia, música e eloquência, conhecido por sua habilidade de criar versos inspiradores e encantar os deuses com suas histórias. Ele é o patrono dos skalds (poetas nórdicos) e um símbolo da arte verbal no panteão nórdico.</p>
+                    
+                    <h3>O Poeta de Asgard</h3>
+                    <p>Bragi é frequentemente descrito como o responsável por receber os guerreiros no Valhalla, saudando-os com poemas que celebram suas façanhas. Sua presença em Asgard é marcada por banquetes onde ele recita versos, elevando o espírito dos deuses e heróis.</p>
+                    
+                    <h3>A Conexão com Idunn</h3>
+                    <p>Bragi é casado com Idunn, a deusa da juventude, o que sugere uma relação simbólica entre a eterna renovação da inspiração poética e a juventude. Juntos, eles representam a vitalidade da criatividade e da expressão artística.</p>
+                    
+                    <h3>Curiosidades</h3>
+                    <ul class="facts-list">
+                        <li>Alguns estudiosos acreditam que Bragi pode ter sido inspirado em um poeta histórico, Bragi Boddason, que foi divinizado.</li>
+                        <li>Ele é descrito como tendo runas gravadas na língua, simbolizando seu domínio sobre as palavras.</li>
+                        <li>Bragi é frequentemente associado a harpas ou outros instrumentos musicais em representações artísticas.</li>
+                        <li>Seu nome está relacionado à palavra nórdica "bragr", que significa "poesia" ou "eloquência".</li>
+                        <li>Apesar de seu papel cultural, Bragi não tem muitos mitos próprios, sendo mais uma figura de apoio em Asgard.</li>
+                    </ul>
+                `
+            }
+        }
+        const mythology = {
+    jormungandr: {
+        name: 'jormungandr',
+        title: 'A Serpente do Mundo',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>A Serpente Gigante</h3>
+            <p>Jörmungandr, também chamada de Serpente de Midgard, é um monstro colossal da mitologia nórdica, filho de Loki e da giganta Angrboða. Tão grande que circunda Midgard (o mundo dos homens), mordendo a própria cauda, Jörmungandr é um símbolo do caos e da destruição.</p>
+            
+            <h3>Inimigo de Thor</h3>
+            <p>Jörmungandr é o arqui-inimigo de Thor, o deus do trovão. Em um mito, Thor tenta pescar a serpente com uma cabeça de boi como isca, quase trazendo-a à superfície, mas o gigante Hymir corta a linha. No Ragnarök, Thor e Jörmungandr se enfrentarão em uma batalha final, onde Thor matará a serpente, mas morrerá envenenado por seu veneno.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>O nome Jörmungandr significa "grande monstro" ou "serpente gigantesca" em nórdico antigo.</li>
+                <li>Sua imagem como uma serpente mordendo a própria cauda é semelhante ao símbolo do Ouroboros, representando ciclos e eternidade.</li>
+                <li>Jörmungandr é irmão de Fenrir e Hel, todos filhos de Loki e Angrboða.</li>
+                <li>Seu tamanho é tão vasto que, segundo os mitos, ele pode causar terremotos ao se mover.</li>
+            </ul>
+        `
+    },
+    fenrir: {
+        name: 'fenrir',
+        title: 'O Lobo Monstruoso',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>O Lobo do Caos</h3>
+            <p>Fenrir é um lobo gigante da mitologia nórdica, filho de Loki e da giganta Angrboða. Conhecido por sua força descomunal e natureza feroz, ele é uma ameaça aos deuses, especialmente por sua profecia de destruição no Ragnarök.</p>
+            
+            <h3>A Prisão de Fenrir</h3>
+            <p>Os deuses, temendo seu poder, tentaram aprisionar Fenrir. Após quebrar duas correntes, ele foi enganado para ser preso pela corrente mágica Gleipnir, feita pelos anões com materiais impossíveis (como o som de um gato e a barba de uma mulher). Fenrir mordeu a mão do deus Týr durante o processo, deixando-o maneta.</p>
+            
+            <h3>O Ragnarök</h3>
+            <p>No Ragnarök, Fenrir se libertará e enfrentará Odin, devorando-o. Ele será vingado por Vidar, filho de Odin, que matará o lobo pisando em sua mandíbula e rasgando-o ao meio.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Fenrir é pai de dois lobos, Sköll e Hati, que perseguem o sol e a lua, respectivamente.</li>
+                <li>Seu nome significa "lobo do pântano" ou simplesmente "lobo" em nórdico antigo.</li>
+                <li>A corrente Gleipnir é um exemplo da habilidade dos anões em criar artefatos mágicos.</li>
+                <li>Fenrir simboliza a força bruta e o caos inevitável que nem os deuses podem controlar.</li>
+            </ul>
+        `
+    },
+    valkyries: {
+        name: 'Valquírias',
+        title: 'As Escolhedoras dos Mortos',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>As Guerreiras de Odin</h3>
+            <p>As Valquírias são espíritos femininos que servem Odin, decidindo o destino dos guerreiros em batalha. Elas escolhem os mais valentes mortos para levá-los ao Valhalla, onde se tornarão Einherjar, guerreiros que lutarão ao lado de Odin no Ragnarök.</p>
+            
+            <h3>Papel nas Batalhas</h3>
+            <p>Além de escolher os mortos, as Valquírias servem hidromel no Valhalla e, em alguns mitos, influenciam o resultado das batalhas, guiadas pelas ordens de Odin. Algumas, como Brynhildr, também têm histórias de amor trágicas com heróis mortais.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>O nome "Valquíria" significa "escolhedora dos mortos" em nórdico antigo.</li>
+                <li>Elas são frequentemente retratadas como guerreiras montadas em cavalos alados ou voando com armaduras brilhantes.</li>
+                <li>Brynhildr, uma Valquíria famosa, aparece na saga dos Volsungos e no ciclo do Anel do Nibelungo.</li>
+                <li>Algumas Valquírias, como Sigrún, são descritas como filhas de reis humanos que se tornaram divinas.</li>
+            </ul>
+        `
+    },
+    dvergar: {
+        name: 'Dvergar (Anões)',
+        title: 'Mestres Artesãos',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>Os Criadores de Tesouros</h3>
+            <p>Os Dvergar, ou anões, são seres da mitologia nórdica conhecidos por sua habilidade em forjar objetos mágicos. Vivendo em cavernas e montanhas, frequentemente em Svartalfheim, eles criaram muitos dos artefatos mais poderosos dos deuses.</p>
+            
+            <h3>Obras Famosas</h3>
+            <p>Os anões forjaram o martelo de Thor (Mjolnir), a lança de Odin (Gungnir), o navio de Freyr (Skíðblaðnir) e a corrente Gleipnir, que prendeu Fenrir. Sua habilidade é tão valorizada que os deuses frequentemente recorrem a eles para criar ou reparar itens mágicos.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Os anões são descritos como pequenos, barbudos e habilidosos, vivendo sob a terra.</li>
+                <li>Alguns mitos sugerem que os anões foram criados a partir dos vermes que roíam o corpo de Ymir.</li>
+                <li>Os irmãos anões Brokkr e Eitri competiram com os filhos de Ivaldi para criar tesouros para os deuses.</li>
+                <li>Em alguns contos, anões são gananciosos ou vingativos, como no caso do anão Andvari e seu anel amaldiçoado.</li>
+            </ul>
+        `
+    },
+    sleipnir: {
+        name: 'Sleipnir',
+        title: 'O Cavalo de Oito Patas',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>O Corcel Divino</h3>
+            <p>Sleipnir é o cavalo mágico de Odin, conhecido por suas oito patas, que o tornam o mais rápido e ágil de todos os cavalos. Filho de Loki (transformado em égua) e do cavalo gigante Svaðilfari, Sleipnir é um símbolo de velocidade e conexão entre os mundos.</p>
+            
+            <h3>Viagens de Odin</h3>
+            <p>Odin cavalga Sleipnir para viajar entre os nove mundos, incluindo jornadas a Helheim e Jotunheim. Sua capacidade de atravessar terra, mar e ar o torna indispensável para o Pai de Todos.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Sleipnir é descrito como cinzento e capaz de correr mais rápido que o vento.</li>
+                <li>Seu nascimento é resultado de um plano de Loki para impedir a construção de uma muralha em Asgard por um gigante.</li>
+                <li>Ele é frequentemente associado ao xamanismo, representando a jornada espiritual entre mundos.</li>
+                <li>Estelas nórdicas, como a Pedra de Tjängvide, retratam um cavalo de oito patas que pode ser Sleipnir.</li>
+            </ul>
+        `
+    },
+    ratatoskr: {
+        name: 'Ratatoskr',
+        title: 'O Mensageiro da Yggdrasil',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>O Esquilo Falante</h3>
+            <p>Ratatoskr é um esquilo que vive na árvore do mundo, Yggdrasil, correndo entre suas raízes e copa para levar mensagens. Ele é conhecido por sua agilidade e por seu papel como um provocador entre os habitantes da árvore.</p>
+            
+            <h3>Conflito na Yggdrasil</h3>
+            <p>Ratatoskr carrega insultos entre a águia que vive na copa da Yggdrasil e a serpente Níðhöggr, que rói suas raízes. Esse comportamento mantém uma tensão constante entre os dois, simbolizando o equilíbrio entre ordem e caos.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>O nome Ratatoskr significa "dente de broca" ou "dente viajante", referindo-se à sua agilidade.</li>
+                <li>Ele é um dos poucos animais com um papel ativo na mitologia nórdica, além de corvos e lobos.</li>
+                <li>Alguns interpretam Ratatoskr como um símbolo da fofoca ou da comunicação maliciosa.</li>
+                <li>Sua presença na Yggdrasil reforça a ideia da árvore como um microcosmo dos nove mundos.</li>
+            </ul>
+        `
+    },
+    huginn_muninn: {
+        name: 'Huginn e Muninn',
+        title: 'Os Corvos de Odin',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>Os Olhos de Odin</h3>
+            <p>Huginn (pensamento) e Muninn (memória) são os dois corvos de Odin, que voam pelos nove mundos todos os dias para coletar informações. Ao retornar, eles sussurram tudo o que viram e ouviram ao Pai de Todos.</p>
+            
+            <h3>Vigilância e Sabedoria</h3>
+            <p>Os corvos permitem que Odin mantenha sua onisciência, sabendo dos eventos em Midgard, Asgard e além. Sua presença reforça a conexão de Odin com a sabedoria e a vigilância, mas ele teme que um dia eles não retornem.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Os nomes Huginn e Muninn derivam de palavras nórdicas para "pensamento" e "memória".</li>
+                <li>Corvos são símbolos de inteligência e mistério em muitas culturas, incluindo a nórdica.</li>
+                <li>Eles são frequentemente retratados pousados nos ombros de Odin em arte viking.</li>
+                <li>Alguns mitos sugerem que Odin envia Huginn e Muninn para vigiar seus inimigos, como Loki.</li>
+            </ul>
+        `
+    },
+    hel: {
+        name: 'Hel',
+        title: 'Rainha do Mundo dos Mortos',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>A Governante de Helheim</h3>
+            <p>Hel é a deusa que preside Helheim, o reino dos mortos que não morreram em batalha. Filha de Loki e da giganta Angrboða, ela é descrita como metade viva e metade morta, com um rosto dividido entre beleza e decomposição.</p>
+            
+            <h3>O Destino de Baldr</h3>
+            <p>Após a morte de Baldr, Hermod viajou a Helheim para pedir que Hel o libertasse. Hel concordou, desde que todas as coisas do mundo chorassem por Baldr. Quando a giganta Þökk (provavelmente Loki disfarçado) recusou, Baldr permaneceu em Helheim.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>O nome Hel significa "oculta" ou "escondida", refletindo seu papel no submundo.</li>
+                <li>Ela é irmã de Fenrir e Jörmungandr, formando o trio de filhos monstruosos de Loki.</li>
+                <li>Helheim, seu reino, é descrito como frio, escuro e cercado pelo rio Gjöll.</li>
+                <li>Alguns estudiosos veem paralelos entre Hel e divindades do submundo, como Hades ou Perséfone.</li>
+            </ul>
+        `
+    }
+
+    }
+    const reinos = {
+    asgard: {
+        name: 'Asgard',
+        title: 'Reino dos Deuses Æsir',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>A Morada Divina</h3>
+            <p>Asgard é o reino celestial dos deuses Æsir, liderados por Odin. Localizado no topo da Yggdrasil, é um lugar de salões dourados, como o Valhalla, e muralhas fortificadas, construídas por um gigante enganado por Loki.</p>
+            
+            <h3>Estrutura e Acesso</h3>
+            <p>Asgard é conectado a Midgard pela ponte arco-íris Bifröst, guardada por Heimdall. Seus salões incluem Gladsheim (para reuniões dos deuses) e Vingólf (para as deusas). O reino é um símbolo de ordem e poder divino.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Asgard será destruído no Ragnarök, mas um novo mundo surgirá após a batalha.</li>
+                <li>O Valhalla, salão de Odin em Asgard, abriga os guerreiros escolhidos pelas Valquírias.</li>
+                <li>A muralha de Asgard foi construída com a ajuda de Sleipnir, o cavalo de Loki.</li>
+                <li>Asgard é frequentemente retratado como uma cidade brilhante flutuando no céu.</li>
+            </ul>
+        `
+    },
+    vanaheim: {
+        name: 'Vanaheim',
+        title: 'Reino dos Deuses Vanir',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>O Lar dos Vanir</h3>
+            <p>Vanaheim é o reino dos deuses Vanir, associados à fertilidade, natureza e magia. Deuses como Njörd, Freyr e Freyja são originários de Vanaheim, que é descrito como um lugar de abundância e beleza natural.</p>
+            
+            <h3>A Guerra Æsir-Vanir</h3>
+            <p>Vanaheim foi o centro de uma guerra contra os Æsir, que terminou com um tratado de paz e a troca de reféns, como Njörd e seus filhos, que se mudaram para Asgard. A guerra simboliza o conflito entre ordem e natureza.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Vanaheim é menos descrito nos mitos, mas é associado a florestas e campos férteis.</li>
+                <li>Os Vanir são mestres da magia seiðr, uma prática ensinada por Freyja aos Æsir.</li>
+                <li>Após a guerra, Vanaheim e Asgard mantiveram uma relação de cooperação.</li>
+                <li>O nome Vanaheim significa "lar dos Vanir" em nórdico antigo.</li>
+            </ul>
+        `
+    },
+    midgard: {
+        name: 'Midgard',
+        title: 'Mundo dos Homens',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>O Reino Humano</h3>
+            <p>Midgard é o mundo dos homens, criado pelos deuses Odin, Vili e Vé a partir do corpo do gigante Ymir. Cercado pela serpente Jörmungandr, é o centro dos nove mundos, conectado a Asgard pela ponte Bifröst.</p>
+            
+            <h3>Criação e Proteção</h3>
+            <p>Os primeiros humanos, Ask e Embla, foram criados por Odin a partir de troncos de árvores. Midgard é protegido por Thor, que frequentemente enfrenta gigantes para defender os mortais.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Midgard significa "recinto do meio" ou "terra do meio" em nórdico antigo.</li>
+                <li>A ponte Bifröst será destruída no Ragnarök, isolando Midgard dos outros mundos.</li>
+                <li>Midgard é descrito como cercado por um grande oceano onde Jörmungandr reside.</li>
+                <li>Os mitos sugerem que Midgard será reconstruído após o Ragnarök, com novos habitantes.</li>
+            </ul>
+        `
+    },
+    jotunheim: {
+        name: 'Jotunheim',
+        title: 'Terra dos Gigantes',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>O Reino dos Jötnar</h3>
+            <p>Jotunheim é o mundo dos gigantes (Jötnar), inimigos frequentes dos deuses Æsir. Localizado além de Midgard, é um lugar selvagem, com montanhas, florestas densas e cavernas, habitado por seres como Þrym e Skaði.</p>
+            
+            <h3>Conflitos com os Deuses</h3>
+            <p>Os gigantes de Jotunheim frequentemente desafiam os deuses, como no roubo do martelo de Thor por Þrym ou nas tentativas de invadir Asgard. Apesar disso, alguns gigantes, como Skaði, se aliam aos deuses por casamento ou acordos.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Jotunheim significa "lar dos gigantes" em nórdico antigo.</li>
+                <li>Utgarðr, uma fortaleza em Jotunheim, é palco de desafios entre Thor e o gigante Utgarða-Loki.</li>
+                <li>Muitos deuses, como Odin e Thor, têm ascendência gigante, mostrando a complexidade das relações com Jotunheim.</li>
+                <li>O reino é descrito como caótico e hostil, contrastando com a ordem de Asgard.</li>
+            </ul>
+        `
+    },
+    niflheim: {
+        name: 'Niflheim',
+        title: 'Mundo do Gelo e da Névoa',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>O Reino Gelado</h3>
+            <p>Niflheim é um dos mundos primordiais, um lugar de gelo, névoa e escuridão. Junto com Muspelheim, contribuiu para a criação do universo, quando seus rios gelados encontraram as chamas de Muspelheim, dando origem a Ymir.</p>
+            
+            <h3>Helheim e Niflheim</h3>
+            <p>Niflheim é às vezes associado a Helheim, o reino dos mortos governado por Hel. Seus rios congelados, como Élivágar, são fontes de frio eterno que alimentam a Yggdrasil.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Niflheim significa "mundo da névoa" ou "lar da escuridão" em nórdico antigo.</li>
+                <li>É descrito como um dos primeiros mundos, existindo antes da criação de Midgard.</li>
+                <li>Os rios Élivágar são considerados a origem de toda a matéria no cosmos nórdico.</li>
+                <li>Niflheim contrasta com Muspelheim, representando o equilíbrio entre frio e calor.</li>
+            </ul>
+        `
+    },
+    muspelheim: {
+        name: 'Muspelheim',
+        title: 'Mundo do Fogo',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>O Reino Flamejante</h3>
+            <p>Muspelheim é o mundo do fogo, lar de chamas eternas e do gigante de fogo Surtr. Junto com Niflheim, foi essencial para a criação do universo, quando o calor de Muspelheim derreteu o gelo de Niflheim, formando Ymir.</p>
+            
+            <h3>Surtr e o Ragnarök</h3>
+            <p>Surtr, o governante de Muspelheim, desempenha um papel crucial no Ragnarök. Com sua espada flamejante, ele incendiará os nove mundos, destruindo Asgard e matando Freyr, antes de perecer na batalha final.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Muspelheim significa "lar do fogo" ou "mundo das chamas" em nórdico antigo.</li>
+                <li>É descrito como um lugar inóspito, acessível apenas por seres resistentes ao calor extremo.</li>
+                <li>Surtr é um dos poucos habitantes nomeados de Muspelheim nos mitos.</li>
+                <li>O contraste entre Muspelheim e Niflheim simboliza a dualidade cósmica nórdica.</li>
+            </ul>
+        `
+    },
+    alfheim: {
+        name: 'Alfheim',
+        title: 'Mundo dos Elfos Luminosos',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>O Reino da Luz</h3>
+            <p>Alfheim é o mundo dos elfos luminosos (Ljósálfar), seres associados à beleza, luz e natureza. Governado por Freyr, Alfheim é descrito como um lugar de brilho etéreo e harmonia.</p>
+            
+            <h3>Os Elfos Luminosos</h3>
+            <p>Os elfos de Alfheim são espíritos benevolentes, contrastando com os elfos negros de Svartalfheim. Pouco se sabe sobre suas ações, mas eles são aliados dos deuses Vanir, especialmente Freyr.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Alfheim significa "lar dos elfos" em nórdico antigo.</li>
+                <li>Freyr recebeu Alfheim como presente quando era jovem, reforçando sua conexão com a fertilidade.</li>
+                <li>Os elfos luminosos são às vezes comparados a anjos ou espíritos da natureza.</li>
+                <li>Alfheim é raramente mencionado nos mitos, sendo um dos mundos menos explorados.</li>
+            </ul>
+        `
+    },
+    svartalfheim: {
+        name: 'Svartalfheim',
+        title: 'Mundo dos Elfos Negros e Anões',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>O Reino Subterrâneo</h3>
+            <p>Svartalfheim é o mundo dos elfos negros (Dökkálfar) e, em algumas interpretações, dos anões. Um lugar sombrio e subterrâneo, é conhecido pela habilidade de seus habitantes em forjar objetos mágicos.</p>
+            
+            <h3>Os Elfos Negros e Anões</h3>
+            <p>Os elfos negros são seres misteriosos, possivelmente malévolos, enquanto os anões de Svartalfheim criaram artefatos como Mjolnir e Gungnir. A distinção entre elfos negros e anões nem sempre é clara nos mitos.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Svartalfheim significa "lar dos elfos negros" em nórdico antigo.</li>
+                <li>Os anões de Svartalfheim são frequentemente confundidos com os Dvergar de outros mitos.</li>
+                <li>O reino é descrito como um labirinto de cavernas escuras e ricas em minérios.</li>
+                <li>Os elfos negros contrastam com os elfos luminosos de Alfheim, representando trevas contra luz.</li>
+            </ul>
+        `
+    },
+    helheim: {
+        name: 'Helheim',
+        title: 'Reino dos Mortos',
+        icon: '/api/placeholder/100/100',
+        image: '/api/placeholder/400/300',
+        description: `
+            <h3>O Mundo dos Mortos</h3>
+            <p>Helheim é o reino dos mortos que não morreram em batalha, governado pela deusa Hel. Um lugar frio, escuro e triste, é separado dos outros mundos pelo rio Gjöll e guardado pelo cão Garm.</p>
+            
+            <h3>A Jornada a Helheim</h3>
+            <p>Os mortos em Helheim levam vidas sombrias, sem a glória do Valhalla. Hermod viajou a Helheim para tentar resgatar Baldr, mas falhou devido à recusa da giganta Þökk em chorar por ele.</p>
+            
+            <h3>Curiosidades</h3>
+            <ul class="facts-list">
+                <li>Helheim significa "lar de Hel" ou "mundo oculto" em nórdico antigo.</li>
+                <li>O cão Garm, que guarda a entrada, enfrentará Týr no Ragnarök, com ambos morrendo.</li>
+                <li>Helheim é às vezes confundido com Niflheim, mas é um reino distinto nos mitos.</li>
+                <li>Os mortos em Helheim são descritos como sombras, sem força ou alegria.</li>
+            </ul>
+        `
+    }
+};
+
+        // Dados para o quiz
+        const quizData = [
+            {
+                question: "Quem é considerado o 'Pai de Todos' na mitologia nórdica?",
+                options: ["Thor", "Loki", "Odin", "Freyr"],
+                correct: 2
+            },
+            {
+                question: "Qual é a arma característica de Thor?",
+                options: ["Gungnir (lança)", "Mjölnir (martelo)", "Gram (espada)", "Laevateinn (espada mágica)"],
+                correct: 1
+            },
+            {
+                question: "Qual criatura envolve o mundo de Midgard, mordendo sua própria cauda?",
+                options: ["Fenrir", "Hati", "Jörmungandr", "Níðhöggr"],
+                correct: 2
+            },
+            {
+                question: "Como se chama a ponte arco-íris que conecta Asgard e Midgard?",
+                options: ["Yggdrasil", "Bifröst", "Gjallarbru", "Gjallarhorn"],
+                correct: 1
+            },
+            {
+                question: "Quais são os corvos de Odin?",
+                options: ["Geri e Freki", "Sleipnir e Svadilfari", "Huginn e Muninn", "Skoll e Hati"],
+                correct: 2
+            },
+            {
+                question: "O que acontecerá no evento apocalíptico chamado Ragnarök?",
+                options: ["Os gigantes vencerão e governarão os nove mundos", "O mundo será destruído e renascerá", "Odin se tornará o único deus", "Os humanos se tornarão imortais"],
+                correct: 1
+            },
+            {
+                question: "Qual deus perdeu sua mão direita ao acorrentar o lobo Fenrir?",
+                options: ["Thor", "Tyr", "Heimdall", "Baldr"],
+                correct: 1
+            },
+            {
+                question: "Qual era o colar precioso de Freya?",
+                options: ["Draupnir", "Brísingamen", "Gleipnir", "Gungnir"],
+                correct: 1
+            },
+            {
+                question: "Qual era o único objeto que poderia matar Baldr?",
+                options: ["Uma espada forjada por anões", "Fogo das terras de Muspelheim", "Um ramo de visco", "Veneno da serpente de Midgard"],
+                correct: 2
+            },
+            {
+                question: "Qual é o nome da árvore cósmica que sustenta os nove mundos?",
+                options: ["Yggdrasil", "Bifröst", "Asgard", "Gjallarhorn"],
+                correct: 0
+            }
+        ];
+
+        // Runas para fundo
+        const runeSymbols = ['ᚠ', 'ᚢ', 'ᚦ', 'ᚨ', 'ᚱ', 'ᚲ', 'ᚷ', 'ᚹ', 'ᚺ', 'ᚾ', 'ᛁ', 'ᛃ', 'ᛇ', 'ᛈ', 'ᛉ', 'ᛊ', 'ᛏ', 'ᛒ', 'ᛖ', 'ᛗ', 'ᛚ', 'ᛜ', 'ᛟ', 'ᛞ'];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Criar runas de fundo
+            createRunesBackground();
+            
+            // Evento de menu mobile
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Animação nas seções quando entrarem no viewport
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Carregando o quiz
+            loadQuiz();
+            
+            // Eventos para cartões de deuses
+            const godCards = document.querySelectorAll('.god-card[data-god]');
+            godCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const godId = this.getAttribute('data-god');
+                    showGodModal(godId);
+                });
+            });
+            
+            // Evento para fechar modal
+            const closeModal = document.getElementById('closeModal');
+            const modal = document.getElementById('godModal');
+            
+            if (closeModal) {
+                closeModal.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+            }
+            
+            // Evento para fechar modal ao clicar fora
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // Botão de tema escuro
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            if (darkModeToggle) {
+                darkModeToggle.addEventListener('click', toggleDarkMode);
+            }
+            
+            // Links de navegação suaves
+            const navAnchors = document.querySelectorAll('a[href^="#"]');
+            navAnchors.forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Fechar menu mobile se estiver aberto
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Função para criar runas de fundo
+        function createRunesBackground() {
+            const runesContainer = document.getElementById('runesBackground');
+            if (!runesContainer) return;
+            
+            for (let i = 0; i < 30; i++) {
+                const rune = document.createElement('div');
+                rune.className = 'rune';
+                rune.textContent = runeSymbols[Math.floor(Math.random() * runeSymbols.length)];
+                
+                // Posição aleatória
+                rune.style.left = `${Math.random() * 100}%`;
+                
+                // Velocidade aleatória
+                const duration = 15 + Math.random() * 30;
+                rune.style.animation = `float ${duration}s infinite linear`;
+                
+                // Atraso de início aleatório
+                rune.style.animationDelay = `${Math.random() * 30}s`;
+                
+                // Tamanho aleatório
+                const size = 1 + Math.random() * 2;
+                rune.style.fontSize = `${size}rem`;
+                
+                runesContainer.appendChild(rune);
+            }
+        }
+
+        // Função para mostrar modal de deus
+        function showGodModal(godId) {
+            const god = godsData[godId];
+            if (!god) return;
+            
+            const modal = document.getElementById('godModal');
+            const modalGodName = document.getElementById('modalGodName');
+            const modalGodTitle = document.getElementById('modalGodTitle');
+            const modalGodIcon = document.getElementById('modalGodIcon');
+            const modalGodImage = document.getElementById('modalGodImage');
+            const modalGodDescription = document.getElementById('modalGodDescription');
+            
+            modalGodName.textContent = god.name;
+            modalGodTitle.textContent = god.title;
+            modalGodIcon.src = god.icon;
+            modalGodIcon.alt = god.name;
+            modalGodImage.src = god.image;
+            modalGodImage.alt = god.name;
+            modalGodDescription.innerHTML = god.description;
+            
+            modal.style.display = 'block';
+        }
+
+        // Função para exibir informações
+        function showInfo(entity) {
+    const infoBox = document.getElementById('info-box');
+    const title = document.getElementById('info-title');
+    const description = document.getElementById('info-description');
+
+    // Verifica se a entidade existe nos dados
+    if (mythology[entity]) {
+        title.textContent = mythology[entity].name;
+        description.textContent = mythology[entity].description;
+        infoBox.style.display = 'block'; // Exibe a caixa
+    }
+}
+
+// Adiciona evento aos links "Saiba mais"
+document.querySelectorAll('.read-more').forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault(); // Evita o comportamento padrão do link
+        const entity = link.getAttribute('data-entity');
+        showInfo(entity);
+    });
+});
+
+
+        // Variáveis para o quiz
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedOption = null;
+
+        // Função para carregar o quiz
+        function loadQuiz() {
+            const questionContainer = document.getElementById('questionContainer');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const question = document.getElementById('question');
+            const optionsContainer = document.getElementById('options');
+            const nextBtn = document.getElementById('nextBtn');
+            const restartBtn = document.getElementById('restartBtn');
+            
+            if (!questionContainer || !resultsContainer || !question || !optionsContainer || !nextBtn || !restartBtn) return;
+            
+            // Reiniciar quiz
+            restartBtn.addEventListener('click', function() {
+                currentQuestion = 0;
+                score = 0;
+                resultsContainer.style.display = 'none';
+                questionContainer.style.display = 'block';
+                loadQuestion();
+            });
+            
+            // Próxima pergunta ou mostrar resultados
+            nextBtn.addEventListener('click', function() {
+                if (selectedOption !== null) {
+                    if (selectedOption === quizData[currentQuestion].correct) {
+                        score++;
+                    }
+                    
+                    currentQuestion++;
+                    selectedOption = null;
+                    
+                    if (currentQuestion < quizData.length) {
+                        loadQuestion();
+                    } else {
+                        showResults();
+                    }
+                } else {
+                    alert('Por favor, selecione uma opção antes de continuar.');
+                }
+            });
+            
+            // Carregar a primeira pergunta
+            loadQuestion();
+            
+            // Função para carregar uma pergunta
+            function loadQuestion() {
+                const currentQuiz = quizData[currentQuestion];
+                question.textContent = currentQuiz.question;
+                
+                optionsContainer.innerHTML = '';
+                
+                currentQuiz.options.forEach((option, index) => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.classList.add('quiz-option');
+                    optionDiv.textContent = option;
+                    optionDiv.dataset.index = index;
+                    
+                    optionDiv.addEventListener('click', function() {
+                        const options = document.querySelectorAll('.quiz-option');
+                        options.forEach(opt => opt.classList.remove('selected'));
+                        this.classList.add('selected');
+                        selectedOption = parseInt(this.dataset.index);
+                    });
+                    
+                    optionsContainer.appendChild(optionDiv);
+                });
+                
+                nextBtn.textContent = currentQuestion === quizData.length - 1 ? 'Finalizar' : 'Próxima Pergunta';
+            }
+            
+            // Função para mostrar resultados
+            function showResults() {
+                questionContainer.style.display = 'none';
+                resultsContainer.style.display = 'block';
+                
+                const scoreText = document.getElementById('score');
+                const progressBar = document.getElementById('progressBar');
+                const feedback = document.getElementById('feedback');
+                
+                const percentage = (score / quizData.length) * 100;
+                scoreText.textContent = `Você acertou ${score} de ${quizData.length} perguntas (${percentage}%)`;
+                
+                progressBar.style.width = `${percentage}%`;
+                
+                // Feedback baseado na pontuação
+                if (percentage >= 90) {
+                    feedback.textContent = 'Impressionante! Você claramente tem o conhecimento digno de um escaldo!';
+                } else if (percentage >= 70) {
+                    feedback.textContent = 'Muito bom! Os deuses estão sorrindo para você!';
+                } else if (percentage >= 50) {
+                    feedback.textContent = 'Bom trabalho! Continue aprendendo sobre os mitos nórdicos.';
+                } else {
+                    feedback.textContent = 'Continue explorando o site para aprender mais sobre a mitologia nórdica!';
+                }
+            }
+        }
+
+
+</script>
+</body>
+</html>
